@@ -10,37 +10,31 @@ Department of Computer Software Engineering
 ### FCFS (First Come First Served)
 - 선입선처리 스케쥴링<br/>
 [[코드]]()
-
 <br/>
 
 ### SJF (Shortest Job First)
 - 최소작업 우선 스케쥴링<br/>
 [[코드]]()
-
 <br/>
 
 ### SRT (Sortest Remaing Time)
 - 선점 최소작업 우선 스케쥴링<br/>
 [[코드]]()
-
 <br/>
 
 ### Non-Preemptive Priority Scheduling
 - 비선점 우선순위 스케쥴링<br/>
 [[코드]]()
-
 <br/>
 
 ### Preemptive Priority Scheduling
 - 선점 우선순위 스케쥴링<br/>
 [[코드]]()
-
 <br/>
 
 ### RR (Round Robin)
 - 라운드 로빈 스케쥴링<br/>
 [[코드]]()
-
 <br/>
 
 ### HRN (Highest Response-Ratio Next)
