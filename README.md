@@ -15,7 +15,7 @@ Department of Computer Software Engineering
 - 최소작업 우선 스케쥴링<br/>
 [[코드]]()
 
-### SRT (Sortest Remaing Time)
+### SRT (Shortest Remaining Time)
 - 선점 최소작업 우선 스케쥴링<br/>
 [[코드]]()
 
