@@ -1,12 +1,12 @@
 #ifndef __CPU__SCHEDULING__ALGORITHMS__
 #define __CPU__SCHEDULING__ALGORITHMS__
 
-#include "FCFS.h"
-#include "HRN.h"
-#include "NPPS.h"
-#include "PPS.h"
-#include "RR.h"
-#include "SJF.h"
-#include "SRT.h"
+#include "./CpuSchedulingAlgorithmsModule/FCFS.h"
+#include "./CpuSchedulingAlgorithmsModule/HRN.h"
+#include "./CpuSchedulingAlgorithmsModule/NPPS.h"
+#include "./CpuSchedulingAlgorithmsModule/PPS.h"
+#include "./CpuSchedulingAlgorithmsModule/RR.h"
+#include "./CpuSchedulingAlgorithmsModule/SJF.h"
+#include "./CpuSchedulingAlgorithmsModule/SRT.h"
 
 #endif
