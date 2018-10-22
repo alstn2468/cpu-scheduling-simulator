@@ -8,4 +8,9 @@
 
 #include "./DataStructure/Queue.h"
 
+void FCFS()
+{
+    
+}
+
 #endif
