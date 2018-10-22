@@ -1,6 +1,7 @@
 #ifndef __CPU__SCHEDULING__ALGORITHMS__
 #define __CPU__SCHEDULING__ALGORITHMS__
 
+#include "./CpuSchedulingAlgorithmsModule/Process.h"
 #include "./CpuSchedulingAlgorithmsModule/FCFS.h"
 #include "./CpuSchedulingAlgorithmsModule/HRN.h"
 #include "./CpuSchedulingAlgorithmsModule/NPPS.h"
