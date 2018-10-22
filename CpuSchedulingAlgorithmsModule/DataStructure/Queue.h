@@ -6,48 +6,48 @@
 
 typedef int element;
 
-typedef struct QueueNode
+typedef struct Node
 {
 	element item;
-	struct QueueNode *link;
-} QueueNode;
+	struct Node *link;
+} Node;
 
 typedef struct
 {
-	QueueNode *front;
-	QueueNode *rear;
-} QueueType;
+	Node *front;
+	Node *rear;
+} Queue;
 
-void error(char *messgae)
+void queue_error(char *messgae)
 {
 	fprintf(stderr, "%s\n", messgae);
-	exit(1);
+	return ;
 }
 
-void init(QueueType *q)
+void queue_init(Queue *q)
 {
 	q->front = NULL;
 	q->rear = NULL;
 }
 
-int is_empty(QueueType *q)
+int queue_is_empty(Queue *q)
 {
 	return (q->front == NULL);
 }
 
-void enqueue(QueueType *q, element item)
+void queue_enqueue(Queue *q, element item)
 {
-	QueueNode *temp = (QueueNode *)malloc(sizeof(QueueNode));
+	Node *temp = (Node *)malloc(sizeof(Node));
 
 	if (temp == NULL)
-		error("MEMORY ALLOCATION ERROR!.\n");
+		queue_error("MEMORY ALLOCATION ERROR!.\n");
 
 	else
 	{
 		temp->item = item;
 		temp->link = NULL;
 
-		if (is_empty(q))
+		if (queue_is_empty(q))
 		{
 			q->front = temp;
 			q->rear = temp;
@@ -61,13 +61,13 @@ void enqueue(QueueType *q, element item)
 	}
 }
 
-element dequeue(QueueType *q)
+element queue_dequeue(Queue *q)
 {
-	QueueNode *temp = q->front;
+	Node *temp = q->front;
 	element item;
 
-	if (is_empty(q))
-		error("QUEUE EMPRY ERROR!.\n");
+	if (queue_is_empty(q))
+		queue_error("QUEUE EMPRY ERROR!.\n");
 
 	else
 	{
@@ -83,10 +83,10 @@ element dequeue(QueueType *q)
 	}
 }
 
-element peek(QueueType *q)
+element queue_peek(Queue *q)
 {
-	if (is_empty(q))
-		error("큐가 비어있습니다.\n");
+	if (queue_is_empty(q))
+		queue_error("큐가 비어있습니다.\n");
 
 	else
 		return q->front->item;

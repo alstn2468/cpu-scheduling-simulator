@@ -6,61 +6,62 @@
 
 typedef int element;
 
-typedef struct
+typedef struct _queue
 {
 	element *queue;
 	int front;
 	int rear;
-} QueueType;
+	int size;
+} CircularQueue;
 
-void error(char *message)
+void cqueue_error(char *message)
 {
 	fprintf(stderr, "%s\n", message);
-	exit(1);
+	return ;
 }
 
-void init(QueueType *q, int count)
+void cqueue_init(CircularQueue *q, int count)
 {
     q->queue = (element *)malloc(sizeof(element) * count);
 	q->front = q->rear = 0;
+	q->size = 0;
 }
 
-int is_empty(QueueType *q)
+int cqueue_is_empty(CircularQueue *q)
 {
 	return  (q->front == q->rear);
 }
 
-int is_full(QueueType *q)
+int cqueue_is_full(CircularQueue *q)
 {
-	return ((q->rear + 1) % MAX_QUEUE_SIZE == q->front);
+	return ((q->rear + 1) % q->size == q->front);
 }
 
-void enqueue(QueueType *q, element item)
+void cqueue_enqueue(CircularQueue *q, element item)
 {
-	if (is_full(q))
-		error("QUEUE FULL ERROR!\n");
+	if (cqueue_is_full(q))
+		cqueue_error("QUEUE FULL ERROR!\n");
 
-	q->rear = (q->rear + 1) % MAX_QUEUE_SIZE;
+	q->rear = (q->rear + 1) % q->size;
 	q->queue[q->rear] = item;
 }
 
-element dequeue(QueueType *q)
+element cqueue_dequeue(CircularQueue *q)
 {
-	if (is_empty(q))
-		error("QUEUE EMPTY ERROR!.\n");
+	if (cqueue_is_empty(q))
+		cqueue_error("QUEUE EMPTY ERROR!.\n");
 
-	q->front = (q->front + 1) % MAX_QUEUE_SIZE;
+	q->front = (q->front + 1) % q->size;
 
 	return q->queue[q->front];
 }
 
-element peek(QueueType *q)
+element cqueue_peek(CircularQueue *q)
 {
-	if (is_empty(q))
-		error("QUEUE EMPTY ERROR!.\n");
+	if (cqueue_is_empty(q))
+		cqueue_error("QUEUE EMPTY ERROR!.\n");
 
-	return q->queue[(q->front + 1) % MAX_QUEUE_SIZE];
+	return q->queue[(q->front + 1) % q->size];
 }
-
 
 #endif

@@ -10,8 +10,8 @@ typedef struct _process
     int arriveTime;
     int burst;
     int priority;
-} Process
+} Process;
 
-typedef int quantum
+typedef int Quantum;
 
 #endif
