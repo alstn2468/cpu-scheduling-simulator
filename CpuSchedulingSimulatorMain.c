@@ -2,7 +2,7 @@
 #include <stdlib.h>
 
 #include "CpuScedulingAlgorithms.h"
-#include "PrintGantTCHART.h"
+#include "PrintGanttChart.h"
 
 int main()
 {
