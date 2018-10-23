@@ -2,7 +2,6 @@
 #include <stdlib.h>
 
 #include "CpuSchedulingAlgorithms.h"
-#include "PrintGanttChart.h"
 
 int main()
 {
@@ -26,7 +25,7 @@ int main()
 
 	while (!feof(fp) || i < process_count)
 	{
-		fscanf(fp, "%s %d %d %d", 
+		fscanf(fp, "%s %d %d %d",
 			process[i].id, &process[i].arriveTime, &process[i].burst, &process[i].priority);
 	}
 

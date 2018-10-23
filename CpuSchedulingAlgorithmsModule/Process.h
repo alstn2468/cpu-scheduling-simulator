@@ -7,7 +7,9 @@
 typedef struct _process
 {
     char id[ID_LEN];
-    int arriveTime;
+    int arrive_time;
+    int waiting_time;
+    int turnaround_time;
     int burst;
     int priority;
 } Process;

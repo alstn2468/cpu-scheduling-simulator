@@ -9,7 +9,7 @@
 #include "./Process.h"
 #include "./DataStructure/Queue.h"
 
-void FCFS()
+void FCFS(Process *process, int len)
 {
 
 }
