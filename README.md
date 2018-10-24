@@ -10,7 +10,7 @@ Department of Computer Software Engineering
 ### FCFS (First Come First Served)
 - 선입선처리 스케쥴링<br/>
 [[코드]](https://github.com/alstn2468/CPU_Scheduling_Simulator/blob/master/CpuSchedulingAlgorithmsModule/FCFS.h)
-<img src="https://github.com/alstn2468/CPU_Scheduling_Simulator/blob/master/FCFS.PNG" width="300" height="auto">
+<img src="https://github.com/alstn2468/CPU_Scheduling_Simulator/blob/master/FCFS.PNG" width="600" height="auto">
 
 ### SJF (Shortest Job First)
 - 최소작업 우선 스케쥴링<br/>
