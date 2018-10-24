@@ -25,7 +25,7 @@ int main()
 
 	while (i < process_count)
 	{
-		fscanf(fp, "%s %d %d %d", 
+		fscanf(fp, "%s %d %d %d",
 			process[i].id, &process[i].arrive_time, &process[i].burst, &process[i].priority);
 		i++;
 	}

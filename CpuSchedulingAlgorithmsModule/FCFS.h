@@ -32,15 +32,14 @@ void print_table(Process p[], int n)
 	puts("+-----+------------+--------------+-----------------+");
 
 	for (i = 0; i < n; i++) {
-		printf("| %3s |     %3d    |      %3d     |        %3d      |\n"
-			, p[i].id, p[i].burst, p[i].waiting_time, p[i].turnaround_time);
+		printf("| %3s |     %3d    |      %3d     |        %3d      |\n",
+		 		p[i].id, p[i].burst, p[i].waiting_time, p[i].turnaround_time);
 
 		puts("+-----+------------+--------------+-----------------+");
 	}
-
 }
 
-void print_gantt_chart(Process p[], int n)
+void fcfs_print_gantt_chart(Process p[], int n)
 {
 	int i, j;
 
