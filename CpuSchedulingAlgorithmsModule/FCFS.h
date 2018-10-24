@@ -127,11 +127,14 @@ void FCFS(Process *p, int len)
 
 	printf("\n");
 	print_table(p, len);
-	printf("\n\n");
+	printf("\n");
 
-	printf("������������������������������������������������������������������\n");
-	printf("��          GANTT CHART          ��\n");
-	printf("������������������������������������������������������������������\n");
+	printf("Average Waiting Time     : %-2.2lf\n", (double)total_waiting_time / (double)len);
+	printf("Average Turnaround Time  : %-2.2lf\n\n", (double)total_turnaround_time / (double)len);
+
+	printf("┌───────────────────────────────┐\n");
+	printf("│          GANTT CHART          │\n");
+	printf("└───────────────────────────────┘\n");
 	print_gantt_chart(p, len);
 }
 
