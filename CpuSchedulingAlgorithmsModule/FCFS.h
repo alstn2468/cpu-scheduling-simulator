@@ -27,25 +27,26 @@ void print_table(Process p[], int n)
 {
 	int i;
 
-	puts("+-----+------------+--------------+-----------------+");
-	puts("| PID | Burst Time | Waiting Time | Turnaround Time |");
-	puts("+-----+------------+--------------+-----------------+");
+	puts("+-----+------------+-------------+----------+--------------+-----------------+");
+	puts("| PID | Burst Time | Arrive Time | Priority | Waiting Time | Turnaround Time |");
+	puts("+-----+------------+-------------+----------+--------------+-----------------+");
 
 	for (i = 0; i < n; i++) {
-		printf("| %3s |     %3d    |      %3d     |        %3d      |\n",
-		 		p[i].id, p[i].burst, p[i].waiting_time, p[i].turnaround_time);
+		printf("| %3s |     %3d    |     %3d     |    %3d   |      %3d     |        %3d      |\n",
+					p[i].id, p[i].burst, p[i].arrive_time, p[i].priority, p[i].waiting_time, p[i].turnaround_time);
 
-		puts("+-----+------------+--------------+-----------------+");
+		puts("+-----+------------+-------------+----------+--------------+-----------------+");
 	}
+
 }
 
-void fcfs_print_gantt_chart(Process p[], int n)
+void fcfs_print_gantt_chart(Process *p, int len)
 {
 	int i, j;
 
 	printf(" ");
 
-	for (i = 0; i < n; i++)
+	for (i = 0; i < len; i++)
 	{
 		for (j = 0; j < p[i].burst; j++)
 			printf("--");
@@ -55,7 +56,7 @@ void fcfs_print_gantt_chart(Process p[], int n)
 
 	printf("\n|");
 
-	for (i = 0; i < n; i++)
+	for (i = 0; i < len; i++)
 	{
 		for (j = 0; j < p[i].burst - 1; j++)
 			printf(" ");
@@ -70,7 +71,7 @@ void fcfs_print_gantt_chart(Process p[], int n)
 
 	printf("\n ");
 
-	for (i = 0; i < n; i++)
+	for (i = 0; i < len; i++)
 	{
 		for (j = 0; j < p[i].burst; j++)
 			printf("--");
@@ -82,7 +83,7 @@ void fcfs_print_gantt_chart(Process p[], int n)
 
 	printf("0");
 
-	for (i = 0; i < n; i++)
+	for (i = 0; i < len; i++)
 	{
 		for (j = 0; j < p[i].burst; j++)
 			printf("  ");
@@ -94,7 +95,7 @@ void fcfs_print_gantt_chart(Process p[], int n)
 
 	}
 
-	printf("\n");
+	printf("\n\n\n");
 
 }
 
@@ -124,17 +125,14 @@ void FCFS(Process *p, int len)
 		total_turnaround_time += p[i].turnaround_time;
 	}
 
-	printf("\n");
+	printf("FCFS Scheduling Algorithm\n");
 	print_table(p, len);
 	printf("\n");
 
 	printf("Average Waiting Time     : %-2.2lf\n", (double)total_waiting_time / (double)len);
 	printf("Average Turnaround Time  : %-2.2lf\n\n", (double)total_turnaround_time / (double)len);
 
-	printf("┌───────────────────────────────┐\n");
-	printf("│          GANTT CHART          │\n");
-	printf("└───────────────────────────────┘\n");
-	print_gantt_chart(p, len);
+	fcfs_print_gantt_chart(p, len);
 }
 
 #endif
