@@ -15,6 +15,7 @@ Department of Computer Software Engineering
 ### SJF (Shortest Job First)
 - 최소작업 우선 스케쥴링<br/>
 [[코드]](https://github.com/alstn2468/CPU_Scheduling_Simulator/blob/master/CpuSchedulingAlgorithmsModule/SJF.h)
+<img src="https://github.com/alstn2468/CPU_Scheduling_Simulator/blob/master/SJF.PNG" width="600" height="auto">
 
 ### SRT (Shortest Remaining Time)
 - 선점 최소작업 우선 스케쥴링<br/>
