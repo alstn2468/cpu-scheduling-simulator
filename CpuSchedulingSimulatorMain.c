@@ -11,7 +11,7 @@ int main()
 	Quantum quantum;
 	Process *process;
 
-	FILE *fp = fopen("data.txt", "r");
+	FILE *fp = fopen("process.txt", "r");
 
 	if (fp == NULL)
 	{
@@ -19,17 +19,20 @@ int main()
 		return 0;
 	}
 
-	fscanf(fp, "%d", &process_count);
+	fscanf(fp, " %d", &process_count);
 
 	process = (Process *)malloc(sizeof(Process) * process_count);
 
-	while (!feof(fp) || i < process_count)
+	while (i < process_count)
 	{
-		fscanf(fp, "%s %d %d %d",
-			process[i].id, &process[i].arriveTime, &process[i].burst, &process[i].priority);
+		fscanf(fp, "%s %d %d %d", 
+			process[i].id, &process[i].arrive_time, &process[i].burst, &process[i].priority);
+		i++;
 	}
 
 	fscanf(fp, " %d", &quantum);
+
+	FCFS(process, process_count);
 
 	fclose(fp);
 	free(process);

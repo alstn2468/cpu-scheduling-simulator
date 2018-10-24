@@ -4,13 +4,11 @@
 #include <stdio.h>
 #include <stdlib.h>
 
-#include "Process.h"
-
-typedef Process Process;
+typedef int element;
 
 typedef struct Node
 {
-	Process item;
+	element item;
 	struct Node *link;
 } Node;
 
@@ -37,7 +35,7 @@ int queue_is_empty(Queue *q)
 	return (q->front == NULL);
 }
 
-void queue_enqueue(Queue *q, Process item)
+void queue_enqueue(Queue *q, element item)
 {
 	Node *temp = (Node *)malloc(sizeof(Node));
 
@@ -63,10 +61,10 @@ void queue_enqueue(Queue *q, Process item)
 	}
 }
 
-Process queue_dequeue(Queue *q)
+element queue_dequeue(Queue *q)
 {
 	Node *temp = q->front;
-	Process item;
+	element item;
 
 	if (queue_is_empty(q))
 		queue_error("QUEUE EMPRY ERROR!.\n");
@@ -85,10 +83,10 @@ Process queue_dequeue(Queue *q)
 	}
 }
 
-Process queue_peek(Queue *q)
+element queue_peek(Queue *q)
 {
 	if (queue_is_empty(q))
-		queue_error("큐가 비어있습니다.\n");
+		queue_error("Queue Empty Error!\n");
 
 	else
 		return q->front->item;
