@@ -92,15 +92,12 @@ int compare_by_turnaround_time(const void *a, const void *b)
 void sjf_print_gantt_chart(Process *p, int len)
 {
 	int i, j;
-	Process *temp = p;
-
-	qsort(temp, len, sizeof(Process), compare_by_turnaround_time);
 
 	printf(" ");
 
 	for (i = 0; i < len; i++)
 	{
-		for (j = 0; j < temp[i].burst; j++)
+		for (j = 0; j < p[i].burst; j++)
 			printf("--");
 
 		printf(" ");
@@ -110,12 +107,12 @@ void sjf_print_gantt_chart(Process *p, int len)
 
 	for (i = 0; i < len; i++)
 	{
-		for (j = 0; j < temp[i].burst - 1; j++)
+		for (j = 0; j < p[i].burst - 1; j++)
 			printf(" ");
 
-		printf("%s", temp[i].id);
+		printf("%s", p[i].id);
 
-		for (j = 0; j < temp[i].burst - 1; j++)
+		for (j = 0; j < p[i].burst - 1; j++)
 			printf(" ");
 
 		printf("|");
@@ -125,7 +122,7 @@ void sjf_print_gantt_chart(Process *p, int len)
 
 	for (i = 0; i < len; i++)
 	{
-		for (j = 0; j < temp[i].burst; j++)
+		for (j = 0; j < p[i].burst; j++)
 			printf("--");
 
 		printf(" ");
@@ -137,13 +134,13 @@ void sjf_print_gantt_chart(Process *p, int len)
 
 	for (i = 0; i < len; i++)
 	{
-		for (j = 0; j < temp[i].burst; j++)
+		for (j = 0; j < p[i].burst; j++)
 			printf("  ");
 
-		if (temp[i].turnaround_time > 9)
+		if (p[i].turnaround_time > 9)
 			printf("\b");
 
-		printf("%d", temp[i].turnaround_time + temp[i].arrive_time);
+		printf("%d", p[i].turnaround_time + p[i].arrive_time);
 
 	}
 
@@ -164,6 +161,8 @@ void SJF(Process *p, int len)
 		total_waiting_time += p[i].waiting_time;
 		total_turnaround_time += p[i].turnaround_time;
 	}
+
+    qsort(p, len, sizeof(Process), compare_by_turnaround_time);
 
 	printf("SJF Scheduling Algorithms\n");
 	print_table(p, len);
