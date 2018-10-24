@@ -7,7 +7,6 @@
 #include <stdlib.h>
 
 #include "./Process.h"
-#include "./DataStructure/Queue.h"
 
 int compare(const void *a, const void *b)
 {
@@ -47,9 +46,9 @@ void print_gantt_chart(Process p[], int n)
 
 	printf(" ");
 
-	for (i = 0; i < n; i++) 
+	for (i = 0; i < n; i++)
 	{
-		for (j = 0; j < p[i].burst; j++) 
+		for (j = 0; j < p[i].burst; j++)
 			printf("--");
 
 		printf(" ");
@@ -57,14 +56,14 @@ void print_gantt_chart(Process p[], int n)
 
 	printf("\n|");
 
-	for (i = 0; i < n; i++) 
+	for (i = 0; i < n; i++)
 	{
-		for (j = 0; j < p[i].burst - 1; j++) 
+		for (j = 0; j < p[i].burst - 1; j++)
 			printf(" ");
 
 		printf("%s", p[i].id);
 
-		for (j = 0; j < p[i].burst - 1; j++) 
+		for (j = 0; j < p[i].burst - 1; j++)
 			printf(" ");
 
 		printf("|");
@@ -72,9 +71,9 @@ void print_gantt_chart(Process p[], int n)
 
 	printf("\n ");
 
-	for (i = 0; i < n; i++) 
+	for (i = 0; i < n; i++)
 	{
-		for (j = 0; j < p[i].burst; j++) 
+		for (j = 0; j < p[i].burst; j++)
 			printf("--");
 
 		printf(" ");
@@ -84,12 +83,12 @@ void print_gantt_chart(Process p[], int n)
 
 	printf("0");
 
-	for (i = 0; i < n; i++) 
+	for (i = 0; i < n; i++)
 	{
-		for (j = 0; j < p[i].burst; j++) 
+		for (j = 0; j < p[i].burst; j++)
 			printf("  ");
 
-		if (p[i].turnaround_time > 9) 
+		if (p[i].turnaround_time > 9)
 			printf("\b");
 
 		printf("%d", p[i].turnaround_time);
@@ -130,9 +129,9 @@ void FCFS(Process *p, int len)
 	print_table(p, len);
 	printf("\n\n");
 
-	printf("¦£¦¡¦¡¦¡¦¡¦¡¦¡¦¡¦¡¦¡¦¡¦¡¦¡¦¡¦¡¦¡¦¡¦¡¦¡¦¡¦¡¦¡¦¡¦¡¦¡¦¡¦¡¦¡¦¡¦¡¦¡¦¡¦¤\n");
-	printf("¦¢          GANTT CHART          ¦¢\n");
-	printf("¦¦¦¡¦¡¦¡¦¡¦¡¦¡¦¡¦¡¦¡¦¡¦¡¦¡¦¡¦¡¦¡¦¡¦¡¦¡¦¡¦¡¦¡¦¡¦¡¦¡¦¡¦¡¦¡¦¡¦¡¦¡¦¡¦¥\n");
+	printf("ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½\n");
+	printf("ï¿½ï¿½          GANTT CHART          ï¿½ï¿½\n");
+	printf("ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½\n");
 	print_gantt_chart(p, len);
 }
 
