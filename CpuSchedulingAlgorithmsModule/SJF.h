@@ -10,7 +10,7 @@
 #define TRUE 1
 #define FALSE 0
 
-void calculate_waiting_time(Process *p, int len)
+void sjf_calculate_waiting_time(Process *p, int len)
 {
 	int i, j;
 	int complete = 0, t = 0, minm = INT_MAX;
@@ -66,7 +66,7 @@ void calculate_waiting_time(Process *p, int len)
 	}
 }
 
-void calculate_turnaround_time(Process *p, int len)
+void sjf_calculate_turnaround_time(Process *p, int len)
 {
 	int i;
 
@@ -153,8 +153,8 @@ void SJF(Process *p, int len)
 	int total_waiting_time = 0;
 	int total_turnaround_time = 0;
 
-	calculate_waiting_time(p, len);
-	calculate_turnaround_time(p, len);
+	sjf_calculate_waiting_time(p, len);
+	sjf_calculate_turnaround_time(p, len);
 
 	for (i = 0; i < len; i++)
 	{
@@ -162,7 +162,7 @@ void SJF(Process *p, int len)
 		total_turnaround_time += p[i].turnaround_time;
 	}
 
-    qsort(p, len, sizeof(Process), compare_by_turnaround_time);
+	qsort(p, len, sizeof(Process), compare_by_turnaround_time);
 
 	printf("SJF Scheduling Algorithms\n");
 	print_table(p, len);

@@ -125,7 +125,7 @@ void FCFS(Process *p, int len)
 		total_turnaround_time += p[i].turnaround_time;
 	}
 
-	printf("FCFS Scheduling Algorithm\n");
+	printf("\nFCFS Scheduling Algorithm\n");
 	print_table(p, len);
 	printf("\n");
 

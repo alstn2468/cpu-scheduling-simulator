@@ -36,6 +36,8 @@ int main()
 
 	SJF(process, process_count);
 
+	RR(process, process_count, quantum);
+
 	fclose(fp);
 	free(process);
 
