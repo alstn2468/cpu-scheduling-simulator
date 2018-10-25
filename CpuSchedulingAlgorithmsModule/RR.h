@@ -73,15 +73,9 @@ void rr_print_gantt_chart(Process *p, int len , Quantum q)
 		total_burst_time += p[i].burst;
 	}
 
-	printf(" ");
-
-	for (i = 0; i < count - 3; i++)
+	for (i = 0; i < total_burst_time * q - 1; i++)
 	{
-		if (i == count - 4)
-			printf("-- ");
-
-		else
-			printf("---");
+		printf("--");
 	}
 
 	printf("\n|");
@@ -96,7 +90,7 @@ void rr_print_gantt_chart(Process *p, int len , Quantum q)
 			{
 				check = FALSE;
 
-				printf(" %s |", p[i].id);
+				printf("  %s  |", p[i].id);
 
 				if (remain_burst_time[i] > q)
 				{
@@ -119,15 +113,11 @@ void rr_print_gantt_chart(Process *p, int len , Quantum q)
 			break;
 	}
 
-	printf("\n ");
+	printf("\n");
 
-	for (i = 0; i < count - 3; i++)
+	for (i = 0; i < total_burst_time * q - 1; i++)
 	{
-		if (i == count - 4)
-			printf("-- ");
-
-		else
-			printf("---");
+		printf("--");
 	}
 
 	printf("\n");
@@ -147,7 +137,8 @@ void rr_print_gantt_chart(Process *p, int len , Quantum q)
 			{
 				check = FALSE;
 
-				printf("%-3d  ", curr_time);
+				printf("%-3d    ", curr_time);
+
 				if (remain_burst_time[i] > q)
 				{
 					curr_time += q;
