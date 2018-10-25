@@ -10,8 +10,6 @@
 #define TRUE 1
 #define FALSE 0
 
-int count = 0;
-
 void rr_calculate_waiting_time(Process *p, int len, Quantum q)
 {
 	int i;
@@ -27,8 +25,6 @@ void rr_calculate_waiting_time(Process *p, int len, Quantum q)
 
 		for (i = 0; i < len; i++)
 		{
-			count++;
-
 			if (remain_burst_time[i] > 0)
 			{
 				check = FALSE;
@@ -73,12 +69,18 @@ void rr_print_gantt_chart(Process *p, int len , Quantum q)
 		total_burst_time += p[i].burst;
 	}
 
+	printf(" ");
+
 	for (i = 0; i < total_burst_time * q - 1; i++)
 	{
-		printf("--");
+		if (i == total_burst_time * q - 2)
+			printf(" \n");
+
+		else
+			printf("--");
 	}
 
-	printf("\n|");
+	printf("|");
 
 	while (TRUE)
 	{
@@ -113,14 +115,16 @@ void rr_print_gantt_chart(Process *p, int len , Quantum q)
 			break;
 	}
 
-	printf("\n");
+	printf("\n ");
 
 	for (i = 0; i < total_burst_time * q - 1; i++)
 	{
-		printf("--");
-	}
+		if (i == total_burst_time * q - 2)
+			printf(" \n");
 
-	printf("\n");
+		else
+			printf("--");
+	}
 
 	for (i = 0; i < len; i++)
 		remain_burst_time[i] = p[i].burst;
