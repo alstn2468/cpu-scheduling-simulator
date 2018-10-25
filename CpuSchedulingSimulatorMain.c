@@ -34,6 +34,8 @@ int main()
 
 	FCFS(process, process_count);
 
+	SJF(process, process_count);
+
 	fclose(fp);
 	free(process);
 
