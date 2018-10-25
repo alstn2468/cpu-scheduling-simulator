@@ -32,6 +32,7 @@ Department of Computer Software Engineering
 ### RR (Round Robin)
 - 라운드 로빈 스케쥴링<br/>
 [[코드]](https://github.com/alstn2468/CPU_Scheduling_Simulator/blob/master/CpuSchedulingAlgorithmsModule/RR.h)
+<img src="https://github.com/alstn2468/CPU_Scheduling_Simulator/blob/master/RR.PNG" width="600" height="auto">
 
 ### HRN (Highest Response-Ratio Next)
 - 최상 응답 비율 우선 스케쥴링<br/>
