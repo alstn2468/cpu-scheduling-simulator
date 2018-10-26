@@ -10,7 +10,17 @@
 
 int calculate_priority(Process *p, int len)
 {
-    return (p->waiting_time + p->burst) / (p->burst);
+	return (p->waiting_time + p->burst) / (p->burst);
+}
+
+void hrn_print_gantt_chart(Process *p, int len)
+{
+
+}
+
+void HRN(Process *p, int len)
+{
+
 }
 
 #endif
