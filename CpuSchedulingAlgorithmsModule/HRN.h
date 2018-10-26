@@ -8,4 +8,9 @@
 
 #include "./Process.h"
 
+int calculate_priority(Process *p, int len)
+{
+    return (p->waiting_time + p->burst) / (p->burst);
+}
+
 #endif
