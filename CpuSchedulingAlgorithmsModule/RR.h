@@ -10,8 +10,6 @@
 #define TRUE 1
 #define FALSE 0
 
-int count = 0;
-
 void rr_calculate_waiting_time(Process *p, int len, Quantum q)
 {
 	int i;
@@ -27,8 +25,6 @@ void rr_calculate_waiting_time(Process *p, int len, Quantum q)
 
 		for (i = 0; i < len; i++)
 		{
-			count++;
-
 			if (remain_burst_time[i] > 0)
 			{
 				check = FALSE;
@@ -61,7 +57,7 @@ void rr_calculate_turnaround_time(Process *p, int len)
 		p[i].turnaround_time = p[i].burst + p[i].waiting_time;
 }
 
-void rr_print_gantt_chart(Process *p, int len , Quantum q)
+void rr_print_gantt_chart(Process *p, int len, Quantum q)
 {
 	int i, j;
 	int curr_time = 0, total_burst_time = 0;
@@ -175,7 +171,7 @@ void RR(Process *p, int len, Quantum quantum)
 	int total_waiting_time = 0;
 	int total_turnaround_time = 0;
 
-	qsort(p, len, sizeof(Process), compare);
+	qsort(p, len, sizeof(Process), compare_by_arrive_time);
 
 	rr_calculate_waiting_time(p, len, quantum);
 	rr_calculate_turnaround_time(p, len);

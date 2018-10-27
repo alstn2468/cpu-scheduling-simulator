@@ -8,7 +8,7 @@
 
 #include "./Process.h"
 
-int compare(const void *a, const void *b)
+int compare_by_arrive_time(const void *a, const void *b)
 {
 	Process *ptA = (Process *)a;
 	Process *ptB = (Process *)b;
@@ -105,7 +105,7 @@ void FCFS(Process *p, int len)
 	int total_waiting_time = 0;
 	int total_turnaround_time = 0;
 
-	qsort(p, len, sizeof(Process), compare);
+	qsort(p, len, sizeof(Process), compare_by_arrive_time);
 
 	for (i = 0; i < len; i++)
 	{
