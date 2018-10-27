@@ -106,8 +106,6 @@ void rr_print_gantt_chart(Process *p, int len, Quantum q)
 					p[i].waiting_time = curr_time - p[i].burst;
 					remain_burst_time[i] = 0;
 				}
-
-
 			}
 		}
 
