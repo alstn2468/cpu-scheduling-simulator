@@ -54,7 +54,7 @@ void rr_calculate_turnaround_time(Process *p, int len)
 	int i;
 
 	for (i = 0; i < len; i++)
-		p[i].turnaround_time = p[i].burst + p[i].waiting_time;
+		p[i].turnaround_time = p[i].burst + p[i].waiting_time - p[i].arrive_time;
 }
 
 void rr_print_gantt_chart(Process *p, int len, Quantum q)
