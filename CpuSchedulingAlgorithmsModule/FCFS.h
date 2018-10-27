@@ -37,7 +37,6 @@ void print_table(Process p[], int n)
 
 		puts("+-----+------------+-------------+----------+--------------+-----------------+");
 	}
-
 }
 
 void fcfs_print_gantt_chart(Process *p, int len)
