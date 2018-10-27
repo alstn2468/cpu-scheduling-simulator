@@ -96,7 +96,6 @@ void fcfs_print_gantt_chart(Process *p, int len)
 	}
 
 	printf("\n\n\n");
-
 }
 
 void FCFS(Process *p, int len)
