@@ -10,7 +10,6 @@
 #define TRUE 1
 #define FALSE 0
 
-
 int compare_by_turnaround_time(const void *a, const void *b)
 {
 	Process *ptA = (Process *)a;
