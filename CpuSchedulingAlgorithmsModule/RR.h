@@ -178,6 +178,8 @@ void RR(Process *p, int len, Quantum quantum)
 
 	for (i = 0; i < len; i++)
 	{
+		p[i].waiting_time = p[i].turnaround_time - p[i].burst;
+
 		total_turnaround_time += p[i].turnaround_time;
 		total_waiting_time += p[i].waiting_time;
 	}
