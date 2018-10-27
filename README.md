@@ -7,6 +7,16 @@ Department of Computer Software Engineering
 ##  [김민수](https://github.com/alstn2468)
 ## [ [Facebook](https://www.facebook.com/profile.php?id=100003769223078) ] [ [Github](https://github.com/alstn2468) ] [ [LinkedIn](https://www.linkedin.com/in/minsu-kim-336289160/) ] [ [Webpage](https://kimminsu.ml) ]<br/>
 
+### Test Case
+Quantum : 2
+
+|PID|Burst Time|Arrive Time|Priority|
+|:-:|:-:|:-:|:-:|
+|P1|2|0|1|
+|P2|9|1|3|
+|P3|5|2|2|
+|P4|11|3|4|
+
 ### FCFS (First Come First Served)
 - 선입선처리 스케쥴링<br/>
 [[코드]](https://github.com/alstn2468/CPU_Scheduling_Simulator/blob/master/CpuSchedulingAlgorithmsModule/FCFS.h)
