@@ -65,6 +65,7 @@ void rr_print_gantt_chart(Process *p, int len , Quantum q)
 {
 	int i, j;
 	int curr_time = 0, total_burst_time = 0;
+	int temp_total_burst_time = 0;
 	int *remain_burst_time = (int *)malloc(sizeof(int) * len);
 
 	for (i = 0; i < len; i++)
@@ -76,9 +77,9 @@ void rr_print_gantt_chart(Process *p, int len , Quantum q)
 	printf(" ");
 
 	if (total_burst_time % 2 != 0)
-		total_burst_time += 1;
+		temp_total_burst_time = total_burst_time + 1;
 
-	for (i = 0; i <= total_burst_time / q; i++)
+	for (i = 0; i <= temp_total_burst_time / q; i++)
 	{
 		printf("------ ");
 	}
@@ -120,7 +121,7 @@ void rr_print_gantt_chart(Process *p, int len , Quantum q)
 
 	printf("\n ");
 
-	for (i = 0; i <= total_burst_time / q; i++)
+	for (i = 0; i <= temp_total_burst_time / q; i++)
 	{
 		printf("------ ");
 	}
