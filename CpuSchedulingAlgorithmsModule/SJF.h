@@ -10,21 +10,6 @@
 #define TRUE 1
 #define FALSE 0
 
-int compare_by_turnaround_time(const void *a, const void *b)
-{
-	Process *ptA = (Process *)a;
-	Process *ptB = (Process *)b;
-
-	if (ptA->turnaround_time < ptB->turnaround_time)
-		return -1;
-
-	else if (ptA->turnaround_time > ptB->turnaround_time)
-		return 1;
-
-	else
-		return 0;
-}
-
 void sjf_calculate_time(Process *p, int len)
 {
 	int i, j;
