@@ -38,6 +38,8 @@ int main()
 
 	RR(process, process_count, quantum);
 
+	HRN(process, process_count);
+
 	fclose(fp);
 	free(process);
 

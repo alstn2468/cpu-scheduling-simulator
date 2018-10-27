@@ -7,37 +7,8 @@
 #include <stdlib.h>
 
 #include "./Process.h"
-
-int compare_by_arrive_time(const void *a, const void *b)
-{
-	Process *ptA = (Process *)a;
-	Process *ptB = (Process *)b;
-
-	if (ptA->arrive_time < ptB->arrive_time)
-		return -1;
-
-	else if (ptA->arrive_time > ptB->arrive_time)
-		return 1;
-
-	else
-		return 0;
-}
-
-void print_table(Process p[], int n)
-{
-	int i;
-
-	puts("+-----+------------+-------------+----------+--------------+-----------------+");
-	puts("| PID | Burst Time | Arrive Time | Priority | Waiting Time | Turnaround Time |");
-	puts("+-----+------------+-------------+----------+--------------+-----------------+");
-
-	for (i = 0; i < n; i++) {
-		printf("| %3s |     %3d    |     %3d     |    %3d   |      %3d     |        %3d      |\n",
-					p[i].id, p[i].burst, p[i].arrive_time, p[i].priority, p[i].waiting_time, p[i].turnaround_time);
-
-		puts("+-----+------------+-------------+----------+--------------+-----------------+");
-	}
-}
+#include "./CompareFunction.h"
+#include "./PrintTable.h"
 
 void fcfs_print_gantt_chart(Process *p, int len)
 {

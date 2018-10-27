@@ -7,23 +7,11 @@
 #include <stdlib.h>
 
 #include "./Process.h"
+#include "./CompareFunction.h"
+#include "./PrintTable.h"
+
 #define TRUE 1
 #define FALSE 0
-
-int compare_by_return_time(const void *a, const void *b)
-{
-	Process *ptA = (Process *)a;
-	Process *ptB = (Process *)b;
-
-	if (ptA->return_time < ptB->return_time)
-		return -1;
-
-	else if (ptA->return_time > ptB->return_time)
-		return 1;
-
-	else
-		return 0;
-}
 
 void hrn_print_gantt_chart(Process *p, int len)
 {

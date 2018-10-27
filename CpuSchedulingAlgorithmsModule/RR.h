@@ -7,6 +7,8 @@
 #include <stdlib.h>
 
 #include "./Process.h"
+#include "./CompareFunction.h"
+#include "./PrintTable.h"
 #define TRUE 1
 #define FALSE 0
 
@@ -106,6 +108,8 @@ void rr_print_gantt_chart(Process *p, int len, Quantum q)
 					p[i].waiting_time = curr_time - p[i].burst;
 					remain_burst_time[i] = 0;
 				}
+
+
 			}
 		}
 
