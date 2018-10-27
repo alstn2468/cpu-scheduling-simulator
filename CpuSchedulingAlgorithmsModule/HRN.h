@@ -10,6 +10,21 @@
 #define TRUE 1
 #define FALSE 0
 
+int compare_by_return_time(const void *a, const void *b)
+{
+	Process *ptA = (Process *)a;
+	Process *ptB = (Process *)b;
+
+	if (ptA->return_time < ptB->return_time)
+		return -1;
+
+	else if (ptA->return_time > ptB->return_time)
+		return 1;
+
+	else
+		return 0;
+}
+
 void hrn_print_gantt_chart(Process *p, int len)
 {
 	int i, j;
@@ -61,7 +76,7 @@ void hrn_print_gantt_chart(Process *p, int len)
 		if (p[i].return_time > 9)
 			printf("\b");
 
-		printf("%d", p[i].turnaround_time + p[i].arrive_time);
+		printf("%d", p[i].return_time);
 
 	}
 
@@ -109,6 +124,7 @@ void HRN(Process *p, int len)
 
 		p[loc].waiting_time = time - p[loc].arrive_time - p[loc].burst;
 		p[loc].turnaround_time = time - p[loc].arrive_time;
+		p[loc].return_time = p[loc].turnaround_time + p[loc].arrive_time;
 		p[loc].completed = TRUE;
 
 		total_turnaround_time += p[loc].turnaround_time;
@@ -121,6 +137,8 @@ void HRN(Process *p, int len)
 
 	printf("Average Waiting Time     : %-2.2lf\n", (double)total_waiting_time / (double)len);
 	printf("Average Turnaround Time  : %-2.2lf\n\n", (double)total_turnaround_time / (double)len);
+
+	qsort(p, len, sizeof(Process), compare_by_return_time);
 
 	hrn_print_gantt_chart(p, len);
 }
