@@ -16,6 +16,7 @@ Quantum : 2
 |P2|9|1|3|
 |P3|5|2|2|
 |P4|11|3|4|
+|P5|2|4|5|
 
 ### FCFS (First Come First Served)
 - 선입선처리 스케쥴링<br/>
