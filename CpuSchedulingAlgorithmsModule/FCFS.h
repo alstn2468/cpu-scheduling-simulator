@@ -88,10 +88,10 @@ void fcfs_print_gantt_chart(Process *p, int len)
 		for (j = 0; j < p[i].burst; j++)
 			printf("  ");
 
-		if (p[i].turnaround_time > 9)
+		if (p[i].return_time > 9)
 			printf("\b");
 
-		printf("%d", p[i].turnaround_time);
+		printf("%d", p[i].return_time);
 
 	}
 
@@ -104,23 +104,27 @@ void FCFS(Process *p, int len)
 	int i;
 	int total_waiting_time = 0;
 	int total_turnaround_time = 0;
+	int total_return_time = 0;
 
 	qsort(p, len, sizeof(Process), compare_by_arrive_time);
 
 	for (i = 0; i < len; i++)
 	{
 		p[i].waiting_time = 0;
-		p[i].turnaround_time = 0;
-
+		p[i].return_time = 0;
 	}
 
-	p[0].turnaround_time = p[0].burst;
+	p[0].return_time = p[0].burst;
+	p[0].turnaround_time = p[0].return_time - p[0].arrive_time;
+	total_return_time = p[0].burst;
 
 	for (i = 1; i < len; i++)
 	{
-		p[i].waiting_time = p[i - 1].waiting_time + p[i - 1].burst;
-		p[i].turnaround_time = p[i].waiting_time + p[i].burst;
+		p[i].waiting_time = total_return_time - p[i].arrive_time;
+		p[i].return_time = total_return_time + p[i].burst;
+		p[i].turnaround_time = p[i].return_time - p[i].arrive_time;
 
+		total_return_time += p[i].burst;
 		total_waiting_time += p[i].waiting_time;
 		total_turnaround_time += p[i].turnaround_time;
 	}
