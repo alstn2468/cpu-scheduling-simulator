@@ -95,7 +95,7 @@ void rr_print_gantt_chart(Process *p, int len, Quantum q)
 			{
 				check = FALSE;
 
-				printf("  %s  |", p[i].id);
+				printf(" %3s  |", p[i].id);
 
 				if (remain_burst_time[i] > q)
 				{
