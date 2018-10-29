@@ -99,13 +99,13 @@ void FCFS(Process *p, int len)
 	}
 
 	printf("\nFCFS Scheduling Algorithm\n");
-	print_table(p, len);
-	printf("\n");
+	fcfs_print_gantt_chart(p, len);
 
 	printf("Average Waiting Time     : %-2.2lf\n", (double)total_waiting_time / (double)len);
+	printf("Average Return Time      : %-2.2lf\n", (double)total_return_time / (double)len);
 	printf("Average Turnaround Time  : %-2.2lf\n\n", (double)total_turnaround_time / (double)len);
 
-	fcfs_print_gantt_chart(p, len);
+	print_table(p, len);
 }
 
 #endif
