@@ -192,14 +192,14 @@ void RR(Process *p, int len, Quantum quantum)
 	}
 
 	printf("Round Robin Scheduling Algorithm ( Quantum : %d )\n", quantum);
-	print_table(p, len);
-	printf("\n");
-
-	printf("Average Waiting Time     : %-2.2lf\n", (double)total_waiting_time / (double)len);
-	printf("Average Turnaround Time  : %-2.2lf\n\n", (double)total_turnaround_time / (double)len);
-	printf("Average Return Time      : %-2.2lf\n\n", (double)total_return_time / (double)len);
 
 	rr_print_gantt_chart(p, len, quantum);
+
+	printf("Average Waiting Time     : %-2.2lf\n", (double)total_waiting_time / (double)len);
+	printf("Average Turnaround Time  : %-2.2lf\n", (double)total_turnaround_time / (double)len);
+	printf("Average Return Time      : %-2.2lf\n\n", (double)total_return_time / (double)len);
+
+	print_table(p, len);
 }
 
 #endif
