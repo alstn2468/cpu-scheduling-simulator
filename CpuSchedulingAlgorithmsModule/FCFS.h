@@ -65,7 +65,7 @@ void fcfs_print_gantt_chart(Process *p, int len)
 
 	}
 
-	printf("\n\n\n");
+	printf("\n");
 }
 
 void FCFS(Process *p, int len)
@@ -74,6 +74,7 @@ void FCFS(Process *p, int len)
 	int total_waiting_time = 0;
 	int total_turnaround_time = 0;
 	int total_return_time = 0;
+	int total_response_time = 0;
 
 	qsort(p, len, sizeof(Process), compare_by_arrive_time);
 
@@ -85,6 +86,7 @@ void FCFS(Process *p, int len)
 
 	p[0].return_time = p[0].burst;
 	p[0].turnaround_time = p[0].return_time - p[0].arrive_time;
+	p[0].response_time = 0;
 	total_return_time = p[0].burst;
 
 	for (i = 1; i < len; i++)
@@ -92,18 +94,22 @@ void FCFS(Process *p, int len)
 		p[i].waiting_time = total_return_time - p[i].arrive_time;
 		p[i].return_time = total_return_time + p[i].burst;
 		p[i].turnaround_time = p[i].return_time - p[i].arrive_time;
+		p[i].response_time = p[i].waiting_time + p[i].arrive_time;
 
 		total_return_time += p[i].burst;
 		total_waiting_time += p[i].waiting_time;
 		total_turnaround_time += p[i].turnaround_time;
+		total_response_time += p[i].response_time;
 	}
 
-	printf("\nFCFS Scheduling Algorithm\n");
+	printf("\nFCFS Scheduling Algorithm\n\n");
+
 	fcfs_print_gantt_chart(p, len);
 
-	printf("Average Waiting Time     : %-2.2lf\n", (double)total_waiting_time / (double)len);
-	printf("Average Return Time      : %-2.2lf\n", (double)total_return_time / (double)len);
-	printf("Average Turnaround Time  : %-2.2lf\n\n", (double)total_turnaround_time / (double)len);
+	printf("\nAverage Waiting Time     : %-2.2lf\n", (double)total_waiting_time / (double)len);
+	printf("Average Response Time    : %-2.2lf\n", (double)total_response_time / (double)len);
+	printf("Average Turnaround Time  : %-2.2lf\n", (double)total_turnaround_time / (double)len);
+	printf("Average Return Time      : %-2.2lf\n\n", (double)total_return_time / (double)len);
 
 	print_table(p, len);
 }
