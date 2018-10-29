@@ -7,5 +7,6 @@
 #include <stdlib.h>
 
 #include "./Process.h"
+#include "./PrintTable.h"
 
 #endif
