@@ -23,7 +23,7 @@ Quantum : 2
 [[코드]](https://github.com/alstn2468/CPU_Scheduling_Simulator/blob/master/CpuSchedulingAlgorithmsModule/FCFS.h)
 
 - Test Image
-<img src="https://github.com/alstn2468/CPU_Scheduling_Simulator/blob/master/FCFS.PNG" width="600" height="auto">
+<img src="https://github.com/alstn2468/CPU_Scheduling_Simulator/blob/master/FCFS.PNG" width="700" height="auto">
 
 <br/>
 
@@ -32,7 +32,7 @@ Quantum : 2
 [[코드]](https://github.com/alstn2468/CPU_Scheduling_Simulator/blob/master/CpuSchedulingAlgorithmsModule/SJF.h)
 
 - Test Image
-<img src="https://github.com/alstn2468/CPU_Scheduling_Simulator/blob/master/SJF.PNG" width="600" height="auto">
+<img src="https://github.com/alstn2468/CPU_Scheduling_Simulator/blob/master/SJF.PNG" width="700" height="auto">
 
 <br/>
 
@@ -74,4 +74,4 @@ Quantum : 2
 [[코드]](https://github.com/alstn2468/CPU_Scheduling_Simulator/blob/master/CpuSchedulingAlgorithmsModule/HRN.h)
 
 - Test Image
-<img src="https://github.com/alstn2468/CPU_Scheduling_Simulator/blob/master/HRN.PNG" width="600" height="auto">
+<img src="https://github.com/alstn2468/CPU_Scheduling_Simulator/blob/master/HRN.PNG" width="700" height="auto">
