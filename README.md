@@ -22,7 +22,7 @@ Quantum : 2
 - 선입선처리 스케쥴링<br/>
 [[코드]](https://github.com/alstn2468/CPU_Scheduling_Simulator/blob/master/CpuSchedulingAlgorithmsModule/FCFS.h)
 
-- Test Image
+- Test Image<br/>
 <img src="https://github.com/alstn2468/CPU_Scheduling_Simulator/blob/master/FCFS.PNG" width="700" height="auto">
 
 <br/>
@@ -31,7 +31,7 @@ Quantum : 2
 - 최소작업 우선 스케쥴링<br/>
 [[코드]](https://github.com/alstn2468/CPU_Scheduling_Simulator/blob/master/CpuSchedulingAlgorithmsModule/SJF.h)
 
-- Test Image
+- Test Image<br/>
 <img src="https://github.com/alstn2468/CPU_Scheduling_Simulator/blob/master/SJF.PNG" width="700" height="auto">
 
 <br/>
@@ -40,7 +40,7 @@ Quantum : 2
 - 선점 최소작업 우선 스케쥴링<br/>
 [[코드]](https://github.com/alstn2468/CPU_Scheduling_Simulator/blob/master/CpuSchedulingAlgorithmsModule/SRT.h)
 
-- Test Image
+- Test Image<br/>
 
 <br/>
 
@@ -48,7 +48,7 @@ Quantum : 2
 - 비선점 우선순위 스케쥴링<br/>
 [[코드]](https://github.com/alstn2468/CPU_Scheduling_Simulator/blob/master/CpuSchedulingAlgorithmsModule/NPPS.h)
 
-- Test Image
+- Test Image<br/>
 
 <br/>
 
@@ -56,7 +56,7 @@ Quantum : 2
 - 선점 우선순위 스케쥴링<br/>
 [[코드]](https://github.com/alstn2468/CPU_Scheduling_Simulator/blob/master/CpuSchedulingAlgorithmsModule/PPS.h)
 
-- Test Image
+- Test Image<br/>
 
 <br/>
 
@@ -64,7 +64,7 @@ Quantum : 2
 - 라운드 로빈 스케쥴링<br/>
 [[코드]](https://github.com/alstn2468/CPU_Scheduling_Simulator/blob/master/CpuSchedulingAlgorithmsModule/RR.h)
 
-- Test Image
+- Test Image<br/>
 <img src="https://github.com/alstn2468/CPU_Scheduling_Simulator/blob/master/RR.PNG" width="700" height="auto">
 
 <br/>
@@ -73,5 +73,5 @@ Quantum : 2
 - 최상 응답 비율 우선 스케쥴링<br/>
 [[코드]](https://github.com/alstn2468/CPU_Scheduling_Simulator/blob/master/CpuSchedulingAlgorithmsModule/HRN.h)
 
-- Test Image
+- Test Image<br/>
 <img src="https://github.com/alstn2468/CPU_Scheduling_Simulator/blob/master/HRN.PNG" width="700" height="auto">
