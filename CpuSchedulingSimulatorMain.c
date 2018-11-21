@@ -45,5 +45,7 @@ int main()
 	fclose(fp);
 	free(process);
 
+	system("pause");
+
     return 0;
 }

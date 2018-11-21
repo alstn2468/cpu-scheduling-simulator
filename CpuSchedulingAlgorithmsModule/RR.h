@@ -205,7 +205,6 @@ void RR(Process *p, int len, Quantum quantum)
 
 	printf("\nAverage Waiting Time     : %-2.2lf\n", (double)total_waiting_time / (double)len);
 	printf("Average Turnaround Time  : %-2.2lf\n", (double)total_turnaround_time / (double)len);
-	printf("Average Return Time      : %-2.2lf\n", (double)total_return_time / (double)len);
 	printf("Average Response Time    : %-2.2lf\n\n", (double)total_response_time / (double)len);
 
 	print_table(p, len);
