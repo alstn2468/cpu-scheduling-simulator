@@ -40,6 +40,8 @@ int main()
 
 	HRN(process, process_count);
 
+	NPPS(process, process_count);
+
 	fclose(fp);
 	free(process);
 

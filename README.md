@@ -1,4 +1,4 @@
-CPU Scheduling Algorithm Simulator
+﻿CPU Scheduling Algorithm Simulator
 ==================================
 Soonchunhyang University<br/>
 Department of Computer Software Engineering
@@ -25,6 +25,7 @@ Quantum : 2
 [[코드]](https://github.com/alstn2468/CPU_Scheduling_Simulator/blob/master/CpuSchedulingAlgorithmsModule/FCFS.h)
 
 - Test Image
+
 <img src="https://github.com/alstn2468/CPU_Scheduling_Simulator/blob/master/FCFS.PNG" width="700" height="auto">
 
 <br/>
@@ -34,6 +35,7 @@ Quantum : 2
 [[코드]](https://github.com/alstn2468/CPU_Scheduling_Simulator/blob/master/CpuSchedulingAlgorithmsModule/SJF.h)
 
 - Test Image
+
 <img src="https://github.com/alstn2468/CPU_Scheduling_Simulator/blob/master/SJF.PNG" width="700" height="auto">
 
 <br/>
@@ -44,6 +46,7 @@ Quantum : 2
 
 - Test Image
 
+
 <br/>
 
 ## Non-Preemptive Priority Scheduling
@@ -51,6 +54,8 @@ Quantum : 2
 [[코드]](https://github.com/alstn2468/CPU_Scheduling_Simulator/blob/master/CpuSchedulingAlgorithmsModule/NPPS.h)
 
 - Test Image
+
+<img src="https://github.com/alstn2468/CPU_Scheduling_Simulator/blob/master/NPPS.PNG" width="700" height="auto">
 
 <br/>
 
@@ -60,6 +65,7 @@ Quantum : 2
 
 - Test Image
 
+
 <br/>
 
 ## RR (Round Robin)
@@ -67,6 +73,7 @@ Quantum : 2
 [[코드]](https://github.com/alstn2468/CPU_Scheduling_Simulator/blob/master/CpuSchedulingAlgorithmsModule/RR.h)
 
 - Test Image
+
 <img src="https://github.com/alstn2468/CPU_Scheduling_Simulator/blob/master/RR.PNG" width="700" height="auto">
 
 <br/>
@@ -76,4 +83,11 @@ Quantum : 2
 [[코드]](https://github.com/alstn2468/CPU_Scheduling_Simulator/blob/master/CpuSchedulingAlgorithmsModule/HRN.h)
 
 - Test Image
-<img src="https://github.com/alstn2468/CPU_Scheduling_Simulator/blob/master/HRN.PNG" width="700" height="auto">
+
+<img src="https://github.com/alstn2468/CPU_Scheduling_Simulator/blob/master/HRN.PNG" width="700" height="auto">'
+
+<br/>
+
+## Contributor
+- [김혜린](https://www.github.com/merry-Hyelyn)
+- [배서형](https://www.github.com/gurumsh)
