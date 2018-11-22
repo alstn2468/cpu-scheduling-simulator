@@ -40,10 +40,11 @@ Quantum : 5
 - Test Image
 > Test Case 1
 
-<img src="https://github.com/alstn2468/CPU_Scheduling_Simulator/blob/master/FCFS.PNG" width="700" height="auto">
+<img src="https://github.com/alstn2468/CPU_Scheduling_Simulator/blob/master/FCFS1.PNG" width="700" height="auto">
 
 > Test Case 2
 
+<img src="https://github.com/alstn2468/CPU_Scheduling_Simulator/blob/master/FCFS2.PNG" width="700" height="auto">
 
 <br/>
 
@@ -54,9 +55,12 @@ Quantum : 5
 - Test Image
 > Test Case 1
 
-<img src="https://github.com/alstn2468/CPU_Scheduling_Simulator/blob/master/SJF.PNG" width="700" height="auto">
+<img src="https://github.com/alstn2468/CPU_Scheduling_Simulator/blob/master/SJF1.PNG" width="700" height="auto">
 
 > Test Case 2
+
+<img src="https://github.com/alstn2468/CPU_Scheduling_Simulator/blob/master/SJF2.PNG" width="700" height="auto">
+
 
 <br/>
 
@@ -79,9 +83,11 @@ Quantum : 5
 
 > Test Case 1
 
-<img src="https://github.com/alstn2468/CPU_Scheduling_Simulator/blob/master/NPPS.PNG" width="700" height="auto">
+<img src="https://github.com/alstn2468/CPU_Scheduling_Simulator/blob/master/NPPS1.PNG" width="700" height="auto">
 
 > Test Case 2
+
+<img src="https://github.com/alstn2468/CPU_Scheduling_Simulator/blob/master/NPPS2.PNG" width="700" height="auto">
 
 <br/>
 
@@ -93,9 +99,11 @@ Quantum : 5
 
 > Test Case 1
 
-<img src="https://github.com/alstn2468/CPU_Scheduling_Simulator/blob/master/PPS.PNG" width="700" height="auto">
+<img src="https://github.com/alstn2468/CPU_Scheduling_Simulator/blob/master/PPS1.PNG" width="700" height="auto">
 
 > Test Case 2
+
+<img src="https://github.com/alstn2468/CPU_Scheduling_Simulator/blob/master/PPS2.PNG" width="700" height="auto">
 
 <br/>
 
@@ -106,9 +114,12 @@ Quantum : 5
 - Test Image
 > Test Case 1
 
-<img src="https://github.com/alstn2468/CPU_Scheduling_Simulator/blob/master/RR.PNG" width="700" height="auto">
+<img src="https://github.com/alstn2468/CPU_Scheduling_Simulator/blob/master/RR1.PNG" width="700" height="auto">
 
 > Test Case 2
+
+<img src="https://github.com/alstn2468/CPU_Scheduling_Simulator/blob/master/RR2.PNG" width="700" height="auto">
+
 
 <br/>
 
@@ -119,9 +130,11 @@ Quantum : 5
 - Test Image
 > Test Case 1
 
-<img src="https://github.com/alstn2468/CPU_Scheduling_Simulator/blob/master/HRN.PNG" width="700" height="auto">'
+<img src="https://github.com/alstn2468/CPU_Scheduling_Simulator/blob/master/HRN1.PNG" width="700" height="auto">'
 
 > Test Case 2
+
+<img src="https://github.com/alstn2468/CPU_Scheduling_Simulator/blob/master/HRN2.PNG" width="700" height="auto">
 
 <br/>
 
