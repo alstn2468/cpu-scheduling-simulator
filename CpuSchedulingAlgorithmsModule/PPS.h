@@ -1,4 +1,4 @@
-#ifndef __PREEMPTIVE__PRIORITY__SCHEDULING__
+﻿#ifndef __PREEMPTIVE__PRIORITY__SCHEDULING__
 #define __PREEMPTIVE__PRIORITY__SCHEDULING__
 
 // Preemptive Priority Scheduling Algorithm
@@ -98,6 +98,7 @@ void pps_print_gantt_chart(Process *p, int len)
 		remain_burst_time[i] = p[i].burst;
 		total_burst_time += p[i].burst;
 		p[i].completed = FALSE;
+		count[i] = 0;
 	}
 
 	running_time = (int *)malloc(sizeof(int)*total_burst_time);
@@ -154,6 +155,7 @@ void pps_print_gantt_chart(Process *p, int len)
 
 	}
 
+	//간트차트 프로세스 이름 출력
 	for (i = 0; i < len; i++)
 	{
 		remain_burst_time[i] = p[i].burst;
@@ -201,91 +203,59 @@ void pps_print_gantt_chart(Process *p, int len)
 		if (current_time == 0)
 		{
 			count[k]++;
+			printf("  ");
 		}
 
 		else
 		{
 			if (pre_k != k)
 			{
-				int a;
 				running_time[current_time] = current_time;
-				num = count[pre_k] / 2;
+				num = count[pre_k] + 1;
+				count[pre_k] = 0;
+				count[k]++;
+				
+				for (int a = 0;a < num;a++)
+					printf("\b");
 
-				if (num / 2 != 0)
-				{
-					for (a = 0; a < num; a++)
-						printf("\b\b\b");
+				printf("%2s", p[pre_k].id);
 
-					printf("%s", p[pre_k].id);
-
-					for (int b = 0; a < num; a++)
-						printf(" ");
-				}
-
-
-				else
-				{
-					for (a = 0; a < (num + 1); a++)
-						printf("\b\b\b");
-
-					printf("%s", p[pre_k].id);
-
-					for (int b = 0; a < (num + 1); a++);
+				for (int b = 0;b < num - 2;b++)
 					printf(" ");
-				}
 
-				printf("|");
+				printf("|  ");
 			}
 
 			else
 			{
 				count[k]++;
 				printf("  ");
-
 				if (current_time == total_burst_time - 1)
 				{
-					int a;
+					num = count[pre_k] + 1;
+					count[pre_k] = 0;
+					count[k]++;
 
-					running_time[current_time] = current_time;
-					num = count[k] / 2;
+					for (int a = 0;a < num;a++)
+						printf("\b");
 
-					if (num / 2 != 0)
-					{
-						for (a = 0; a < num; a++)
-							printf("\b\b");
+					printf("%2s", p[pre_k].id);
 
-						printf("%2s", p[k].id);
-
-						for (int b = 0; a < num; a++)
-							printf(" ");
-					}
-
-
-					else
-					{
-						for (a = 0; a < (num + 1); a++)
-							printf("\b\b");
-
-						printf("%2s", p[k].id);
-
-						for (int b = 0; a < (num + 1); a++);
-						printf("   ");
-					}
+					for (int b = 0;b < num - 2;b++)
+						printf(" ");
 				}
-				//printf("\b\b  ");
-				//printf("%2s", p[pre_k].id);
 			}
+			
 		}
-
 		pre_k = k;
 		remain_burst_time[k]--;
 		current_time++;
-
 
 		if (remain_burst_time[k] == 0)
 			p[k].completed = TRUE;
 	}
 
+	//간트차트 마지막
 	for (i = 0; i < len; i++)
 	{
 		remain_burst_time[i] = p[i].burst;
@@ -386,30 +356,30 @@ void pps_print_gantt_chart(Process *p, int len)
 			}
 
 
-		if (pre_k != k)
-		{
-			for (i = 0; i < num && current_time != 0; i++)
-				printf("  ");
+			if (pre_k != k)
+			{
+				for (i = 0; i < num && current_time != 0; i++)
+					printf("  ");
 
-			if (current_time != 0)
-				printf(" ");
+				if (current_time != 0)
+					printf(" ");
 
-			printf("%-2d", current_time);
-			num = 0;
+				printf("%-2d", current_time);
+				num = 0;
 
-			previous_time = current_time;
+				previous_time = current_time;
 
-		}
+			}
 
-		else
-			num++;
+			else
+				num++;
 
-		remain_burst_time[k]--;
-		current_time++;
-		pre_k = k;
+			remain_burst_time[k]--;
+			current_time++;
+			pre_k = k;
 
-		if (remain_burst_time[k] == 0)
-			p[k].completed = TRUE;
+			if (remain_burst_time[k] == 0)
+				p[k].completed = TRUE;
 		}
 
 		else
@@ -445,7 +415,7 @@ void PPS(Process *p, int len)
 		total_response_time += p[i].response_time;
 	}
 
-	printf("Preemptive Priority Scheduling Algorithm\n");
+	printf("Preemptive Priority Scheduling Algorithm\n\n");
 
 	pps_print_gantt_chart(p, len);
 
