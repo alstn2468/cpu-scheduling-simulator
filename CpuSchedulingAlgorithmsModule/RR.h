@@ -259,38 +259,22 @@ void rr_print_gantt_chart(Process *p, int len, Quantum q)
 
 				if (remain_burst_time[i] < q)
 				{
-					if (q > 2)
-					{
-						printf("%-2d", curr_time);
-						for (j = 0; j <= remain_burst_time[i] + 1; j++)
-							printf(" ");
-					}
+					printf("%-2d", curr_time);
 
-					else
-					{
-						printf("%-2d", curr_time);
-						for (j = 0; j < remain_burst_time[i]; j++)
-							printf(" ");
-					}
+					for (j = 0; j < remain_burst_time[i] - 1; j++)
+						printf("  ");
+
+					printf(" ");
 				}
 
 				else
 				{
-					if (q > 2)
-					{
-						printf("%-2d ", curr_time);
-						for (j = 0; j < q; j++)
-							printf("  ");
-					}
+					printf("%-2d", curr_time);
 
-					else
-					{
-						printf("%-2d", curr_time);
-						for (j = 0; j < q; j++)
-							printf("  ");
+					for (j = 0; j < q; j++)
+						printf("  ");
 
-						printf(" ");
-					}
+					printf(" ");
 				}
 
 				if (remain_burst_time[i] > q)
