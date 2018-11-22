@@ -31,6 +31,8 @@ Quantum : 5
 |P4|4|3|1|
 |P5|14|4|2|
 
+<br/>
+
 ## FCFS (First Come First Served)
 - 선입선처리 스케쥴링<br/>
 [[코드]](https://github.com/alstn2468/CPU_Scheduling_Simulator/blob/master/CpuSchedulingAlgorithmsModule/FCFS.h)
