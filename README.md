@@ -7,7 +7,7 @@ Department of Computer Software Engineering
 ##  [김민수](https://github.com/alstn2468)
 ## [ [Facebook](https://www.facebook.com/profile.php?id=100003769223078) ] [ [Github](https://github.com/alstn2468) ] [ [LinkedIn](https://www.linkedin.com/in/minsu-kim-336289160/) ] [ [Webpage](https://kimminsu.ml) ]<br/>
 
-## Test Case
+## Test Case 1
 Quantum : 2
 
 |PID|Burst Time|Arrive Time|Priority|
@@ -19,6 +19,17 @@ Quantum : 2
 |P5|2|4|5|
 
 <br/>
+
+## Test Case 2
+Quantum : 5
+
+|PID|Burst Time|Arrive Time|Priority|
+|:-:|:-:|:-:|:-:|
+|P1|10|0|4|
+|P2|28|1|2|
+|P3|6|2|5|
+|P4|4|3|1|
+|P5|14|4|2|
 
 ## FCFS (First Come First Served)
 - 선입선처리 스케쥴링<br/>
