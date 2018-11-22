@@ -65,6 +65,7 @@ Quantum : 2
 
 - Test Image
 
+<img src="https://github.com/alstn2468/CPU_Scheduling_Simulator/blob/master/PPS.PNG" width="700" height="auto">
 
 <br/>
 
