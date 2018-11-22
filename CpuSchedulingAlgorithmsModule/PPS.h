@@ -21,7 +21,7 @@ void pps_calculate_waiting_time(Process *p, int len)
 	int priority;
 	int k = 0;
 
-	for (int i = 0;i < len;i++) 
+	for (int i = 0; i < len; i++)
 	{
 		count[i] = 0;
 		remain_burst_time[i] = p[i].burst;
@@ -35,11 +35,11 @@ void pps_calculate_waiting_time(Process *p, int len)
 
 		if (current_time <= p[len - 1].arrive_time)
 		{
-			for (int i = 0;i < len;i++)
+			for (int i = 0; i < len; i++)
 			{
 				if (p[i].completed == FALSE && p[i].arrive_time <= current_time)
 				{
-					if (priority > p[i].priority) 
+					if (priority > p[i].priority)
 					{
 						priority = p[i].priority;
 						k = i;
@@ -50,11 +50,11 @@ void pps_calculate_waiting_time(Process *p, int len)
 
 		else
 		{
-			for (int i = 0;i < len;i++)
+			for (int i = 0; i < len; i++)
 			{
 				if (p[i].completed == FALSE)
 				{
-					if (priority > p[i].priority) 
+					if (priority > p[i].priority)
 					{
 						priority = p[i].priority;
 						k = i;
@@ -62,6 +62,7 @@ void pps_calculate_waiting_time(Process *p, int len)
 				}
 			}
 		}
+
 		if (count[k] == 0)
 		{
 			count[k]++;
@@ -71,7 +72,7 @@ void pps_calculate_waiting_time(Process *p, int len)
 		remain_burst_time[k]--;
 		current_time++;
 
-		if (remain_burst_time[k] == 0) 
+		if (remain_burst_time[k] == 0)
 		{
 			p[k].completed = TRUE;
 			p[k].waiting_time = current_time - p[k].burst - p[k].arrive_time;
@@ -82,36 +83,37 @@ void pps_calculate_waiting_time(Process *p, int len)
 
 void pps_print_gantt_chart(Process *p, int len)
 {
+	int i, j;
 	int *count = (int *)malloc(sizeof(int)*len);
 	int total_burst_time = 0;
-	int current_time = 0;
+	int current_time = 0, previous_time = 0;
 	int *remain_burst_time = (int *)malloc(sizeof(int)*len);
 	int *running_time;
 	int k, pre_k = 0;
 	int priority;
 	int num;
 
-	for (int i = 0;i < len;i++)
+	for (i = 0; i < len; i++)
 	{
 		remain_burst_time[i] = p[i].burst;
 		total_burst_time += p[i].burst;
 		p[i].completed = FALSE;
 	}
-	
+
 	running_time = (int *)malloc(sizeof(int)*total_burst_time);
-	for (int j = 0; j < total_burst_time;j++)
+
+	for (j = 0; j < total_burst_time; j++)
 		running_time[j] = -1;
 
 	printf(" ");
 
-	//간트차트 위에 부분
 	while (current_time < total_burst_time)
 	{
 		priority = INT_MAX;
 
 		if (current_time <= p[len - 1].arrive_time)
 		{
-			for (int i = 0;i < len;i++)
+			for (i = 0; i < len; i++)
 			{
 				if (p[i].completed == FALSE && p[i].arrive_time <= current_time)
 				{
@@ -126,7 +128,7 @@ void pps_print_gantt_chart(Process *p, int len)
 
 		else
 		{
-			for (int i = 0;i < len;i++)
+			for (i = 0; i < len; i++)
 			{
 				if (p[i].completed == FALSE)
 				{
@@ -138,6 +140,7 @@ void pps_print_gantt_chart(Process *p, int len)
 				}
 			}
 		}
+
 		if (pre_k != k)
 			printf(" ");
 
@@ -145,13 +148,13 @@ void pps_print_gantt_chart(Process *p, int len)
 		remain_burst_time[k]--;
 		current_time++;
 		pre_k = k;
+
 		if (remain_burst_time[k] == 0)
 			p[k].completed = TRUE;
 
 	}
-	
-	//프로세스 출력
-	for (int i = 0;i < len;i++)
+
+	for (i = 0; i < len; i++)
 	{
 		remain_burst_time[i] = p[i].burst;
 		p[i].completed = FALSE;
@@ -159,14 +162,15 @@ void pps_print_gantt_chart(Process *p, int len)
 
 	current_time = 0;
 	printf("\n|");
+
 	while (current_time < total_burst_time)
 	{
-		
+
 		priority = INT_MAX;
 
 		if (current_time <= p[len - 1].arrive_time)
 		{
-			for (int i = 0;i < len;i++)
+			for (i = 0; i < len; i++)
 			{
 				if (p[i].completed == FALSE && p[i].arrive_time <= current_time)
 				{
@@ -181,7 +185,7 @@ void pps_print_gantt_chart(Process *p, int len)
 
 		else
 		{
-			for (int i = 0;i < len;i++)
+			for (i = 0; i < len; i++)
 			{
 				if (p[i].completed == FALSE)
 				{
@@ -207,60 +211,64 @@ void pps_print_gantt_chart(Process *p, int len)
 				running_time[current_time] = current_time;
 				num = count[pre_k] / 2;
 
-				if (num / 2 != 0)	//값이 홀수인 경우
+				if (num / 2 != 0)
 				{
-					for (a = 0;a < num;a++)
+					for (a = 0; a < num; a++)
 						printf("\b\b\b");
 
 					printf("%s", p[pre_k].id);
 
-					for (int b = 0;a < num;a++)
+					for (int b = 0; a < num; a++)
 						printf(" ");
 				}
-				
+
 
 				else
 				{
-					for (a = 0;a < (num + 1);a++)
+					for (a = 0; a < (num + 1); a++)
 						printf("\b\b\b");
+
 					printf("%s", p[pre_k].id);
 
-					for (int b = 0;a < (num + 1);a++);
-						printf(" ");
+					for (int b = 0; a < (num + 1); a++);
+					printf(" ");
 				}
-				//printf("|%2s",p[k].id);
+
 				printf("|");
 			}
-			
+
 			else
 			{
 				count[k]++;
 				printf("  ");
+
 				if (current_time == total_burst_time - 1)
 				{
 					int a;
+
 					running_time[current_time] = current_time;
 					num = count[k] / 2;
 
-					if (num / 2 != 0)	//값이 홀수인 경우
+					if (num / 2 != 0)
 					{
-						for (a = 0;a < num;a++)
+						for (a = 0; a < num; a++)
 							printf("\b\b");
 
 						printf("%2s", p[k].id);
 
-						for (int b = 0;a < num;a++)
+						for (int b = 0; a < num; a++)
 							printf(" ");
 					}
 
 
 					else
 					{
-						for (a = 0;a < (num + 1);a++)
+						for (a = 0; a < (num + 1); a++)
 							printf("\b\b");
+
 						printf("%2s", p[k].id);
 
-						for (int b = 0;a < (num + 1);a++);
+						for (int b = 0; a < (num + 1); a++);
 						printf("   ");
 					}
 				}
@@ -272,28 +280,28 @@ void pps_print_gantt_chart(Process *p, int len)
 		pre_k = k;
 		remain_burst_time[k]--;
 		current_time++;
-		
-		
+
+
 		if (remain_burst_time[k] == 0)
 			p[k].completed = TRUE;
 	}
 
-	for (int i = 0;i < len;i++)
+	for (i = 0; i < len; i++)
 	{
 		remain_burst_time[i] = p[i].burst;
 		p[i].completed = FALSE;
 	}
 
-	//간트차트 아래부분
 	current_time = 0;
 	printf("|\n");
+
 	while (current_time < total_burst_time)
 	{
 		priority = INT_MAX;
 
 		if (current_time <= p[len - 1].arrive_time)
 		{
-			for (int i = 0;i < len;i++)
+			for (i = 0; i < len; i++)
 			{
 				if (p[i].completed == FALSE && p[i].arrive_time <= current_time)
 				{
@@ -308,7 +316,7 @@ void pps_print_gantt_chart(Process *p, int len)
 
 		else
 		{
-			for (int i = 0;i < len;i++)
+			for (i = 0; i < len; i++)
 			{
 				if (p[i].completed == FALSE)
 				{
@@ -320,28 +328,101 @@ void pps_print_gantt_chart(Process *p, int len)
 				}
 			}
 		}
+
 		if (pre_k != k)
 			printf(" ");
 
 		printf("--");
+
 		remain_burst_time[k]--;
 		current_time++;
 		pre_k = k;
+
 		if (remain_burst_time[k] == 0)
 			p[k].completed = TRUE;
-
 	}
-	printf("\n0");
-	
-	for (int h = 0;h < total_burst_time;h++)
+
+	for (i = 0; i < len; i++)
 	{
-		if (running_time[h] > 0)
-			printf("%d", running_time[h]);
+		remain_burst_time[i] = p[i].burst;
+		p[i].completed = FALSE;
+	}
+
+	current_time = 0;
+	num = 0;
+	printf("\n");
+
+	while (current_time <= total_burst_time)
+	{
+		if (total_burst_time != current_time)
+		{
+			priority = INT_MAX;
+
+			if (current_time <= p[len - 1].arrive_time)
+			{
+				for (i = 0; i < len; i++)
+				{
+					if (p[i].completed == FALSE && p[i].arrive_time <= current_time)
+					{
+						if (priority > p[i].priority)
+						{
+							priority = p[i].priority;
+							k = i;
+						}
+					}
+				}
+			}
+
+			else
+			{
+				for (i = 0; i < len; i++)
+				{
+					if (p[i].completed == FALSE && priority > p[i].priority)
+					{
+						priority = p[i].priority;
+						k = i;
+					}
+				}
+			}
+
+
+		if (pre_k != k)
+		{
+			for (i = 0; i < num && current_time != 0; i++)
+				printf("  ");
+
+			if (current_time != 0)
+				printf(" ");
+
+			printf("%-2d", current_time);
+			num = 0;
+
+			previous_time = current_time;
+
+		}
 
 		else
-			printf("  ");
+			num++;
+
+		remain_burst_time[k]--;
+		current_time++;
+		pre_k = k;
+
+		if (remain_burst_time[k] == 0)
+			p[k].completed = TRUE;
+		}
+
+		else
+		{
+			for (i = 0; i < current_time - previous_time - 1; i++)
+				printf("  ");
+			printf(" ");
+
+			printf("%-2d", current_time);
+
+			break;
+		}
 	}
-	printf(" %d", total_burst_time);
 }
 
 void PPS(Process *p, int len)
@@ -356,7 +437,7 @@ void PPS(Process *p, int len)
 
 	pps_calculate_waiting_time(p, len);
 
-	for (i = 0;i < len;i++)
+	for (i = 0; i < len; i++)
 	{
 		p[i].turnaround_time = p[i].return_time - p[i].arrive_time;
 		total_waiting_time += p[i].waiting_time;
