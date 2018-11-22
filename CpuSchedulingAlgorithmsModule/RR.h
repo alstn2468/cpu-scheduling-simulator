@@ -85,12 +85,16 @@ void rr_print_gantt_chart(Process *p, int len, Quantum q)
 
 				if (remain_burst_time[i] < q)
 				{
-					printf(" --");
+					printf(" ");
+					for (j = 0; j < remain_burst_time[i]; j++)
+						printf("--");
 				}
 
 				else
 				{
-					printf(" ----");
+					printf(" ");
+					for (j = 0; j <= q; j++)
+						printf("--");
 				}
 
 				if (remain_burst_time[i] > q)
@@ -133,12 +137,34 @@ void rr_print_gantt_chart(Process *p, int len, Quantum q)
 
 				if (remain_burst_time[i] < q)
 				{
-					printf("|%2s", p[i].id);
+					printf("|");
+
+					if (remain_burst_time[i] != 1)
+					{
+						for (j = 0; j <= remain_burst_time[i] / 2; j++)
+							printf(" ");
+
+						printf("%2s", p[i].id);
+
+						for (j = 0; j <= remain_burst_time[i] / 2; j++)
+							printf(" ");
+					}
+
+					else
+						printf("%2s", p[i].id);
 				}
 
 				else
 				{
-					printf("| %2s ", p[i].id);
+					printf("|", p[i].id);
+
+					for (j = 0; j < q; j++)
+						printf(" ");
+
+					printf("%2s", p[i].id);
+
+					for (j = 0; j < q; j++)
+						printf(" ");
 				}
 
 				if (remain_burst_time[i] > q)
@@ -180,10 +206,18 @@ void rr_print_gantt_chart(Process *p, int len, Quantum q)
 				check = FALSE;
 
 				if (remain_burst_time[i] < q)
-					printf(" --");
+				{
+					printf(" ");
+					for (j = 0; j < remain_burst_time[i]; j++)
+						printf("--");
+				}
 
 				else
-					printf(" ----");
+				{
+					printf(" ");
+					for (j = 0; j <= q; j++)
+						printf("--");
+				}
 
 				if (remain_burst_time[i] > q)
 				{
@@ -224,10 +258,24 @@ void rr_print_gantt_chart(Process *p, int len, Quantum q)
 				check = FALSE;
 
 				if (remain_burst_time[i] < q)
-					printf("%-2d ", curr_time);
+				{
+					printf("%-2d", curr_time);
+
+					for (j = 0; j < remain_burst_time[i] - 1; j++)
+						printf("  ");
+
+					printf(" ");
+				}
 
 				else
-					printf("%-3d  ", curr_time);
+				{
+					printf("%-2d", curr_time);
+
+					for (j = 0; j < q; j++)
+						printf("  ");
+
+					printf(" ");
+				}
 
 				if (remain_burst_time[i] > q)
 				{
