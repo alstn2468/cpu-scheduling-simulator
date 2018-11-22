@@ -1,4 +1,4 @@
-﻿#ifndef __PREEMPTIVE__PRIORITY__SCHEDULING__
+#ifndef __PREEMPTIVE__PRIORITY__SCHEDULING__
 #define __PREEMPTIVE__PRIORITY__SCHEDULING__
 
 // Preemptive Priority Scheduling Algorithm
@@ -214,13 +214,13 @@ void pps_print_gantt_chart(Process *p, int len)
 				num = count[pre_k] + 1;
 				count[pre_k] = 0;
 				count[k]++;
-				
-				for (int a = 0;a < num;a++)
+
+				for (int a = 0; a < num; a++)
 					printf("\b");
 
 				printf("%2s", p[pre_k].id);
 
-				for (int b = 0;b < num - 2;b++)
+				for (int b = 0; b < num - 2; b++)
 					printf(" ");
 
 				printf("|  ");
@@ -236,16 +236,16 @@ void pps_print_gantt_chart(Process *p, int len)
 					count[pre_k] = 0;
 					count[k]++;
 
-					for (int a = 0;a < num;a++)
+					for (int a = 0; a < num; a++)
 						printf("\b");
 
 					printf("%2s", p[pre_k].id);
 
-					for (int b = 0;b < num - 2;b++)
+					for (int b = 0; b < num - 2; b++)
 						printf(" ");
 				}
 			}
-			
+
 		}
 		pre_k = k;
 		remain_burst_time[k]--;
