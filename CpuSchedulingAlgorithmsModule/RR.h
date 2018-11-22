@@ -73,18 +73,6 @@ void rr_print_gantt_chart(Process *p, int len, Quantum q)
 		total_burst_time += p[i].burst;
 	}
 
-	printf(" ");
-
-	if (total_burst_time % 2 != 0)
-		temp_total_burst_time = total_burst_time + 1;
-
-	for (i = 0; i <= temp_total_burst_time / q; i++)
-	{
-		printf("------ ");
-	}
-
-	printf("\n|");
-
 	while (TRUE)
 	{
 		int check = TRUE;
@@ -95,7 +83,15 @@ void rr_print_gantt_chart(Process *p, int len, Quantum q)
 			{
 				check = FALSE;
 
-				printf(" %3s  |", p[i].id);
+				if (remain_burst_time[i] < q)
+				{
+					printf(" --");
+				}
+
+				else
+				{
+					printf(" ----");
+				}
 
 				if (remain_burst_time[i] > q)
 				{
@@ -118,18 +114,110 @@ void rr_print_gantt_chart(Process *p, int len, Quantum q)
 			break;
 	}
 
-	printf("\n ");
+	printf(" \n");
 
-	for (i = 0; i <= temp_total_burst_time / q; i++)
+	for (i = 0; i < len; i++)
 	{
-		printf("------ ");
+		remain_burst_time[i] = p[i].burst;
+	}
+
+	while (TRUE)
+	{
+		int check = TRUE;
+
+		for (i = 0; i < len; i++)
+		{
+			if (remain_burst_time[i] > 0)
+			{
+				check = FALSE;
+
+				if (remain_burst_time[i] < q)
+				{
+
+					printf("|%2s", p[i].id);
+				}
+
+				else
+				{
+					printf("| %2s", p[i].id);
+
+					for (j = 0; j < q / 2; j++)
+						printf(" ");
+				}
+
+				if (remain_burst_time[i] > q)
+				{
+					curr_time += q;
+					remain_burst_time[i] -= q;
+				}
+
+				else
+				{
+					curr_time += remain_burst_time[i];
+					p[i].waiting_time = curr_time - p[i].burst;
+					remain_burst_time[i] = 0;
+				}
+
+
+			}
+		}
+
+		if (check == TRUE)
+			break;
+	}
+
+	printf("|\n");
+
+	for (i = 0; i < len; i++)
+	{
+		remain_burst_time[i] = p[i].burst;
+	}
+
+	while (TRUE)
+	{
+		int check = TRUE;
+
+		for (i = 0; i < len; i++)
+		{
+			if (remain_burst_time[i] > 0)
+			{
+				check = FALSE;
+
+				if (remain_burst_time[i] < q)
+				{
+					printf(" --");
+				}
+
+				else
+				{
+					printf(" ----");
+				}
+
+				if (remain_burst_time[i] > q)
+				{
+					curr_time += q;
+					remain_burst_time[i] -= q;
+				}
+
+				else
+				{
+					curr_time += remain_burst_time[i];
+					p[i].waiting_time = curr_time - p[i].burst;
+					remain_burst_time[i] = 0;
+				}
+
+
+			}
+		}
+
+		if (check == TRUE)
+			break;
 	}
 
 	printf("\n");
 
 	for (i = 0; i < len; i++)
 		remain_burst_time[i] = p[i].burst;
-
 
 	curr_time = 0;
 
@@ -143,7 +231,15 @@ void rr_print_gantt_chart(Process *p, int len, Quantum q)
 			{
 				check = FALSE;
 
-				printf("%-3d    ", curr_time);
+				if (remain_burst_time[i] < q)
+				{
+					printf("%-2d ", curr_time);
+				}
+
+				else
+				{
+					printf("%-3d  ", curr_time);
+				}
 
 				if (remain_burst_time[i] > q)
 				{
