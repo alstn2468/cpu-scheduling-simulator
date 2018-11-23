@@ -96,8 +96,8 @@ void HRN(Process *p, int len)
 
 		for (i = 0; i < len; i++)
 		{
-			if ((p[i].arrive_time <= time) &&
-					(p[i].completed != TRUE))
+			if ((p[i].arrive_time <= time)
+					&& (p[i].completed != TRUE))
 			{
 				temp = (p[i].burst + (time - p[i].arrive_time)) / p[i].burst;
 
