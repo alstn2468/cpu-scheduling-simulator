@@ -45,8 +45,9 @@ void sjf_calculate_time(Process *p, int len)
 
 		for (j = i; j < len; j++)
 		{
-			if ((p[j].completed == FALSE) && (p[j].arrive_time <= curr_time)
-				&& (p[j].burst < p[min].burst))
+			if ((p[j].completed == FALSE)
+					&& (p[j].arrive_time <= curr_time)
+						&& (p[j].burst < p[min].burst))
 			{
 				min = j;
 			}
