@@ -155,7 +155,6 @@ void pps_print_gantt_chart(Process *p, int len)
 
 		if (remain_burst_time[k] == 0)
 			p[k].completed = TRUE;
-
 	}
 
 	for (i = 0; i < len; i++)
@@ -370,7 +369,6 @@ void pps_print_gantt_chart(Process *p, int len)
 				num = 0;
 
 				previous_time = current_time;
-
 			}
 
 			else
