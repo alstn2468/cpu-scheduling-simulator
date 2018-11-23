@@ -7,6 +7,7 @@
 #include <stdlib.h>
 
 #include "./Process.h"
+#include "./CompareFunction.h"
 #include "./PrintTable.h"
 
 #define TRUE 1
@@ -14,14 +15,16 @@
 
 void pps_calculate_waiting_time(Process *p, int len)
 {
-	int *remain_burst_time = (int *)malloc(sizeof(int)*len);
-	int *count = (int *)malloc(sizeof(int)*len);
+	int i;
+	int priority;
 	int current_time = 0;
 	int total_burst_time = 0;
-	int priority;
 	int k = 0;
 
-	for (int i = 0; i < len; i++)
+	int *remain_burst_time = (int *)malloc(sizeof(int) * len);
+	int *count = (int *)malloc(sizeof(int) * len);
+
+	for (i = 0; i < len; i++)
 	{
 		count[i] = 0;
 		remain_burst_time[i] = p[i].burst;
@@ -35,7 +38,7 @@ void pps_calculate_waiting_time(Process *p, int len)
 
 		if (current_time <= p[len - 1].arrive_time)
 		{
-			for (int i = 0; i < len; i++)
+			for (i = 0; i < len; i++)
 			{
 				if (p[i].completed == FALSE && p[i].arrive_time <= current_time)
 				{
@@ -50,7 +53,7 @@ void pps_calculate_waiting_time(Process *p, int len)
 
 		else
 		{
-			for (int i = 0; i < len; i++)
+			for (i = 0; i < len; i++)
 			{
 				if (p[i].completed == FALSE)
 				{
@@ -83,15 +86,15 @@ void pps_calculate_waiting_time(Process *p, int len)
 
 void pps_print_gantt_chart(Process *p, int len)
 {
-	int i, j;
-	int *count = (int *)malloc(sizeof(int)*len);
+	int i;
 	int total_burst_time = 0;
 	int current_time = 0, previous_time = 0;
-	int *remain_burst_time = (int *)malloc(sizeof(int)*len);
-	int *running_time;
 	int k, pre_k = 0;
-	int priority;
-	int num;
+	int priority, num;
+
+	int *count = (int *)malloc(sizeof(int) * len);
+	int *remain_burst_time = (int *)malloc(sizeof(int) * len);
+	int *running_time;
 
 	for (i = 0; i < len; i++)
 	{
@@ -103,8 +106,8 @@ void pps_print_gantt_chart(Process *p, int len)
 
 	running_time = (int *)malloc(sizeof(int)*total_burst_time);
 
-	for (j = 0; j < total_burst_time; j++)
-		running_time[j] = -1;
+	for (i = 0; i < total_burst_time; i++)
+		running_time[i] = -1;
 
 	printf(" ");
 
@@ -155,19 +158,17 @@ void pps_print_gantt_chart(Process *p, int len)
 
 	}
 
-	//간트차트 프로세스 이름 출력
 	for (i = 0; i < len; i++)
 	{
 		remain_burst_time[i] = p[i].burst;
 		p[i].completed = FALSE;
 	}
 
-	current_time = 0;
 	printf("\n|");
+	current_time = 0;
 
 	while (current_time < total_burst_time)
 	{
-
 		priority = INT_MAX;
 
 		if (current_time <= p[len - 1].arrive_time)
@@ -215,12 +216,12 @@ void pps_print_gantt_chart(Process *p, int len)
 				count[pre_k] = 0;
 				count[k]++;
 
-				for (int a = 0; a < num; a++)
+				for (i= 0; i < num; i++)
 					printf("\b");
 
 				printf("%2s", p[pre_k].id);
 
-				for (int b = 0; b < num - 2; b++)
+				for (i = 0; i < num - 2; i++)
 					printf(" ");
 
 				printf("|  ");
@@ -229,6 +230,7 @@ void pps_print_gantt_chart(Process *p, int len)
 			else
 			{
 				count[k]++;
+
 				printf("  ");
 				if (current_time == total_burst_time - 1)
 				{
@@ -236,17 +238,18 @@ void pps_print_gantt_chart(Process *p, int len)
 					count[pre_k] = 0;
 					count[k]++;
 
-					for (int a = 0; a < num; a++)
+					for (i = 0; i < num; i++)
 						printf("\b");
 
 					printf("%2s", p[pre_k].id);
 
-					for (int b = 0; b < num - 2; b++)
+					for (i = 0; i < num - 2; i++)
 						printf(" ");
 				}
 			}
 
 		}
+
 		pre_k = k;
 		remain_burst_time[k]--;
 		current_time++;
@@ -255,15 +258,14 @@ void pps_print_gantt_chart(Process *p, int len)
 			p[k].completed = TRUE;
 	}
 
-	//간트차트 마지막
 	for (i = 0; i < len; i++)
 	{
 		remain_burst_time[i] = p[i].burst;
 		p[i].completed = FALSE;
 	}
 
-	current_time = 0;
 	printf("|\n");
+	current_time = 0;
 
 	while (current_time < total_burst_time)
 	{
@@ -425,4 +427,5 @@ void PPS(Process *p, int len)
 
 	print_table(p, len);
 }
+
 #endif
