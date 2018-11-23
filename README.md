@@ -40,11 +40,11 @@ Quantum : 5
 - Test Image
 > Test Case 1
 
-<img src="https://github.com/alstn2468/CPU_Scheduling_Simulator/blob/master/FCFS1.PNG" width="700" height="auto">
+<img src="https://github.com/alstn2468/CPU_Scheduling_Simulator/blob/master/Test_Image/FCFS1.PNG" width="700" height="auto">
 
 > Test Case 2
 
-<img src="https://github.com/alstn2468/CPU_Scheduling_Simulator/blob/master/FCFS2.PNG" width="700" height="auto">
+<img src="https://github.com/alstn2468/CPU_Scheduling_Simulator/blob/master/Test_Image/FCFS2.PNG" width="700" height="auto">
 
 <br/>
 
@@ -55,11 +55,11 @@ Quantum : 5
 - Test Image
 > Test Case 1
 
-<img src="https://github.com/alstn2468/CPU_Scheduling_Simulator/blob/master/SJF1.PNG" width="700" height="auto">
+<img src="https://github.com/alstn2468/CPU_Scheduling_Simulator/blob/master/Test_Image/SJF1.PNG" width="700" height="auto">
 
 > Test Case 2
 
-<img src="https://github.com/alstn2468/CPU_Scheduling_Simulator/blob/master/SJF2.PNG" width="700" height="auto">
+<img src="https://github.com/alstn2468/CPU_Scheduling_Simulator/blob/master/Test_Image/SJF2.PNG" width="700" height="auto">
 
 <br/>
 
@@ -70,11 +70,11 @@ Quantum : 5
 - Test Image
 > Test Case 1
 
-<img src="https://github.com/alstn2468/CPU_Scheduling_Simulator/blob/master/SRT1.PNG" width="700" height="auto">
+<img src="https://github.com/alstn2468/CPU_Scheduling_Simulator/blob/master/Test_Image/SRT1.PNG" width="700" height="auto">
 
 > Test Case 2
 
-<img src="https://github.com/alstn2468/CPU_Scheduling_Simulator/blob/master/SRT2.PNG" width="700" height="auto">
+<img src="https://github.com/alstn2468/CPU_Scheduling_Simulator/blob/master/Test_Image/SRT2.PNG" width="700" height="auto">
 
 <br/>
 
@@ -86,11 +86,11 @@ Quantum : 5
 
 > Test Case 1
 
-<img src="https://github.com/alstn2468/CPU_Scheduling_Simulator/blob/master/NPPS1.PNG" width="700" height="auto">
+<img src="https://github.com/alstn2468/CPU_Scheduling_Simulator/blob/master/Test_Image/NPPS1.PNG" width="700" height="auto">
 
 > Test Case 2
 
-<img src="https://github.com/alstn2468/CPU_Scheduling_Simulator/blob/master/NPPS2.PNG" width="700" height="auto">
+<img src="https://github.com/alstn2468/CPU_Scheduling_Simulator/blob/master/Test_Image/NPPS2.PNG" width="700" height="auto">
 
 <br/>
 
@@ -102,11 +102,11 @@ Quantum : 5
 
 > Test Case 1
 
-<img src="https://github.com/alstn2468/CPU_Scheduling_Simulator/blob/master/PPS1.PNG" width="700" height="auto">
+<img src="https://github.com/alstn2468/CPU_Scheduling_Simulator/blob/master/Test_Image/PPS1.PNG" width="700" height="auto">
 
 > Test Case 2
 
-<img src="https://github.com/alstn2468/CPU_Scheduling_Simulator/blob/master/PPS2.PNG" width="700" height="auto">
+<img src="https://github.com/alstn2468/CPU_Scheduling_Simulator/blob/master/Test_Image/PPS2.PNG" width="700" height="auto">
 
 <br/>
 
@@ -117,11 +117,11 @@ Quantum : 5
 - Test Image
 > Test Case 1
 
-<img src="https://github.com/alstn2468/CPU_Scheduling_Simulator/blob/master/RR1.PNG" width="700" height="auto">
+<img src="https://github.com/alstn2468/CPU_Scheduling_Simulator/blob/master/Test_Image/RR1.PNG" width="700" height="auto">
 
 > Test Case 2
 
-<img src="https://github.com/alstn2468/CPU_Scheduling_Simulator/blob/master/RR2.PNG" width="700" height="auto">
+<img src="https://github.com/alstn2468/CPU_Scheduling_Simulator/blob/master/Test_Image/RR2.PNG" width="700" height="auto">
 
 <br/>
 
@@ -132,11 +132,11 @@ Quantum : 5
 - Test Image
 > Test Case 1
 
-<img src="https://github.com/alstn2468/CPU_Scheduling_Simulator/blob/master/HRN1.PNG" width="700" height="auto">'
+<img src="https://github.com/alstn2468/CPU_Scheduling_Simulator/blob/master/Test_Image/HRN1.PNG" width="700" height="auto">'
 
 > Test Case 2
 
-<img src="https://github.com/alstn2468/CPU_Scheduling_Simulator/blob/master/HRN2.PNG" width="700" height="auto">
+<img src="https://github.com/alstn2468/CPU_Scheduling_Simulator/blob/master/Test_Image/HRN2.PNG" width="700" height="auto">
 
 <br/>
 
