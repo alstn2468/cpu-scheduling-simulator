@@ -40,8 +40,8 @@ void pps_calculate_waiting_time(Process *p, int len)
 		{
 			for (i = 0; i < len; i++)
 			{
-				if ((p[i].completed == FALSE) &&
-						(p[i].arrive_time <= current_time))
+				if ((p[i].completed == FALSE)
+						&& (p[i].arrive_time <= current_time))
 				{
 					if (priority > p[i].priority)
 					{
@@ -120,8 +120,8 @@ void pps_print_gantt_chart(Process *p, int len)
 		{
 			for (i = 0; i < len; i++)
 			{
-				if ((p[i].completed == FALSE) &&
-						(p[i].arrive_time <= current_time))
+				if ((p[i].completed == FALSE)
+						&& (p[i].arrive_time <= current_time))
 				{
 					if (priority > p[i].priority)
 					{
@@ -176,8 +176,8 @@ void pps_print_gantt_chart(Process *p, int len)
 		{
 			for (i = 0; i < len; i++)
 			{
-				if ((p[i].completed == FALSE) &&
-						(p[i].arrive_time <= current_time))
+				if ((p[i].completed == FALSE)
+						&& (p[i].arrive_time <= current_time))
 				{
 					if (priority > p[i].priority)
 					{
@@ -277,8 +277,8 @@ void pps_print_gantt_chart(Process *p, int len)
 		{
 			for (i = 0; i < len; i++)
 			{
-				if ((p[i].completed == FALSE) &&
-						(p[i].arrive_time <= current_time))
+				if ((p[i].completed == FALSE)
+						&& (p[i].arrive_time <= current_time))
 				{
 					if (priority > p[i].priority)
 					{
@@ -337,8 +337,8 @@ void pps_print_gantt_chart(Process *p, int len)
 			{
 				for (i = 0; i < len; i++)
 				{
-					if ((p[i].completed == FALSE) &&
-							(p[i].arrive_time <= current_time))
+					if ((p[i].completed == FALSE)
+							&& (p[i].arrive_time <= current_time))
 					{
 						if (priority > p[i].priority)
 						{
@@ -353,8 +353,8 @@ void pps_print_gantt_chart(Process *p, int len)
 			{
 				for (i = 0; i < len; i++)
 				{
-					if ((p[i].completed == FALSE) &&
-							(priority > p[i].priority))
+					if ((p[i].completed == FALSE)
+							&& (priority > p[i].priority))
 					{
 						priority = p[i].priority;
 						k = i;
