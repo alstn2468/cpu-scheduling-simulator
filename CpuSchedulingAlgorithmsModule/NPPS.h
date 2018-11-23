@@ -116,7 +116,6 @@ void npps_print_gantt_chart(Process *p, int len)
 			printf("\b");
 
 		printf("%d", p[i].return_time);
-
 	}
 
 	printf("\n");
