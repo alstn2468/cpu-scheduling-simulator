@@ -65,7 +65,6 @@ void hrn_print_gantt_chart(Process *p, int len)
 			printf("\b");
 
 		printf("%d", p[i].return_time);
-
 	}
 
 	printf("\n");
@@ -93,7 +92,6 @@ void HRN(Process *p, int len)
 
 	for (time = p[0].arrive_time; time < total_burst_time;)
 	{
-
 		hrr = -9999;
 
 		for (i = 0; i < len; i++)
