@@ -61,7 +61,6 @@ Quantum : 5
 
 <img src="https://github.com/alstn2468/CPU_Scheduling_Simulator/blob/master/SJF2.PNG" width="700" height="auto">
 
-
 <br/>
 
 ## SRT (Shortest Remaining Time)
@@ -71,7 +70,11 @@ Quantum : 5
 - Test Image
 > Test Case 1
 
+<img src="https://github.com/alstn2468/CPU_Scheduling_Simulator/blob/master/SRT1.PNG" width="700" height="auto">
+
 > Test Case 2
+
+<img src="https://github.com/alstn2468/CPU_Scheduling_Simulator/blob/master/SRT2.PNG" width="700" height="auto">
 
 <br/>
 
@@ -119,7 +122,6 @@ Quantum : 5
 > Test Case 2
 
 <img src="https://github.com/alstn2468/CPU_Scheduling_Simulator/blob/master/RR2.PNG" width="700" height="auto">
-
 
 <br/>
 
