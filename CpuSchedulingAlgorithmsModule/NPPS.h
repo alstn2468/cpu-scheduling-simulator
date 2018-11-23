@@ -42,8 +42,8 @@ void npps_calculate(Process *p, int len)
 		{
 			if (p[i].arrive_time <= time)
 			{
-				if ((p[min].priority > p[i].priority) &&
-						(p[i].completed == FALSE))
+				if ((p[min].priority > p[i].priority)
+						&& (p[i].completed == FALSE))
 				{
 					min = i;
 					check = TRUE;
