@@ -249,7 +249,6 @@ void pps_print_gantt_chart(Process *p, int len)
 						printf(" ");
 				}
 			}
-
 		}
 
 		pre_k = k;
