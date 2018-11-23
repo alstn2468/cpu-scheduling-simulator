@@ -18,7 +18,7 @@ void srt_calculate_waiting_time(Process *p, int len)
 	int i;
 	int current_time = 0;
 	int total_burst_time = 0;
-	int shortest_remain_time;
+	int shortest_remain_time, previous_time;
 	int k = 0;
 
 	int *remain_burst_time = (int *)malloc(sizeof(int) * len);
@@ -169,74 +169,54 @@ void srt_print_gantt_chart(Process *p, int len)
 	current_time = 0;
 	printf("\n|");
 
-	while (current_time < total_burst_time)
+	while (current_time <= total_burst_time)
 	{
-		shortest_remain_time = INT_MAX;
-
-		if (current_time <= p[len - 1].arrive_time)
+		if (current_time != total_burst_time)
 		{
-			for (i = 0; i < len; i++)
+			shortest_remain_time = INT_MAX;
+
+			if (current_time <= p[len - 1].arrive_time)
 			{
-				if ((p[i].completed == FALSE)
+				for (i = 0; i < len; i++)
+				{
+					if ((p[i].completed == FALSE)
 						&& (p[i].arrive_time <= current_time))
-				{
-					if (shortest_remain_time > remain_burst_time[i])
 					{
-						shortest_remain_time = remain_burst_time[i];
-						k = i;
+						if (shortest_remain_time > remain_burst_time[i])
+						{
+							shortest_remain_time = remain_burst_time[i];
+							k = i;
+						}
 					}
 				}
-			}
-		}
-
-		else
-		{
-			for (i = 0; i < len; i++)
-			{
-				if (p[i].completed == FALSE)
-				{
-					if (shortest_remain_time > remain_burst_time[i])
-					{
-						shortest_remain_time = remain_burst_time[i];
-						k = i;
-					}
-				}
-			}
-		}
-
-		if (current_time == 0)
-		{
-			count[k]++;
-			printf("  ");
-		}
-
-		else
-		{
-			if (pre_k != k)
-			{
-				running_time[current_time] = current_time;
-				num = count[pre_k] + 1;
-				count[pre_k] = 0;
-				count[k]++;
-
-				for (i = 0; i < num; i++)
-					printf("\b");
-
-				printf("%2s", p[pre_k].id);
-
-				for (i = 0; i < num - 2; i++)
-					printf(" ");
-
-				printf("|  ");
 			}
 
 			else
 			{
-				count[k]++;
-
-				printf("  ");
-				if (current_time == total_burst_time - 1)
+				for (i = 0; i < len; i++)
 				{
+					if (p[i].completed == FALSE)
+					{
+						if (shortest_remain_time > remain_burst_time[i])
+						{
+							shortest_remain_time = remain_burst_time[i];
+							k = i;
+						}
+					}
+				}
+			}
+
+			if (current_time == 0)
+			{
+				count[k]++;
+				printf("  ");
+			}
+
+			else
+			{
+				if (pre_k != k)
+				{
+					running_time[current_time] = current_time;
 					num = count[pre_k] + 1;
 					count[pre_k] = 0;
 					count[k]++;
@@ -248,9 +228,32 @@ void srt_print_gantt_chart(Process *p, int len)
 
 					for (i = 0; i < num - 2; i++)
 						printf(" ");
+
+					printf("|  ");
+
+					previous_time = current_time;
+				}
+
+				else
+				{
+					count[k]++;
+
+					printf("  ");
 				}
 			}
+		}
 
+		else
+		{
+			for (i = 0; i <= (current_time - previous_time) / 2 ; i++)
+				printf("\b\b");
+
+			printf("%2s", p[pre_k].id);
+
+			for (i = 0; i <= (current_time - previous_time) / 2; i++)
+				printf("  ");
+
+			break;
 		}
 
 		pre_k = k;
