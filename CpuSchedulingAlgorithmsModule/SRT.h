@@ -83,6 +83,9 @@ void srt_calculate_waiting_time(Process *p, int len)
 			p[k].return_time = current_time;
 		}
 	}
+
+	free(count);
+	free(remain_burst_time);
 }
 
 void srt_print_gantt_chart(Process *p, int len)
@@ -241,27 +244,27 @@ void srt_print_gantt_chart(Process *p, int len)
 					printf("  ");
 				}
 			}
+
+			pre_k = k;
+			remain_burst_time[k]--;
+			current_time++;
+
+			if (remain_burst_time[k] == 0)
+				p[k].completed = TRUE;
 		}
 
 		else
 		{
-			for (i = 0; i <= (current_time - previous_time) / 2 ; i++)
-				printf("\b\b");
+			for (i = 0; i <= current_time - previous_time; i++)
+				printf("\b");
 
 			printf("%2s", p[pre_k].id);
 
-			for (i = 0; i <= (current_time - previous_time) / 2; i++)
-				printf("  ");
+			for (i = 0; i < current_time - previous_time - 1; i++)
+				printf(" ");
 
 			break;
 		}
-
-		pre_k = k;
-		remain_burst_time[k]--;
-		current_time++;
-
-		if (remain_burst_time[k] == 0)
-			p[k].completed = TRUE;
 	}
 
 	for (i = 0; i < len; i++)
@@ -328,7 +331,6 @@ void srt_print_gantt_chart(Process *p, int len)
 	}
 
 	current_time = 0;
-	num = 0;
 	printf("\n");
 
 	while (current_time <= total_burst_time)
@@ -379,7 +381,6 @@ void srt_print_gantt_chart(Process *p, int len)
 				num = 0;
 
 				previous_time = current_time;
-
 			}
 
 			else
