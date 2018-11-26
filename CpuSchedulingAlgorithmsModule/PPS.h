@@ -83,6 +83,9 @@ void pps_calculate_waiting_time(Process *p, int len)
 			p[k].return_time = current_time;
 		}
 	}
+
+	free(remain_burst_time);
+	free(count);
 }
 
 void pps_print_gantt_chart(Process *p, int len)
@@ -398,6 +401,10 @@ void pps_print_gantt_chart(Process *p, int len)
 			break;
 		}
 	}
+
+	free(count);
+	free(running_time);
+	free(remain_burst_time);
 }
 
 void PPS(Process *p, int len)

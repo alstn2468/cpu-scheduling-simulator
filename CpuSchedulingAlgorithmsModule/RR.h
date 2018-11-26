@@ -299,6 +299,8 @@ void rr_print_gantt_chart(Process *p, int len, Quantum q)
 	printf("%-3d\n", total_burst_time);
 
 	printf("\n");
+
+	free(remain_burst_time);
 }
 
 void RR(Process *p, int len, Quantum quantum)
