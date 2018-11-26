@@ -165,6 +165,8 @@ Quantum : 5
 
 > SRT > SJF > HRN > NPPS, PPS > FCFS > RR
 
+<br/>
+
 - Test Case 2
 
 ||Average Waiting Time|Average Turnaround Time|Average Response Time|
