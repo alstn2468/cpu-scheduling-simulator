@@ -141,7 +141,8 @@ Quantum : 5
 <br/>
 
 ## Performance Analysis
-- Test Case 1
+
+### Test Case 1
 
 ||Average Waiting Time|Average Turnaround Time|Average Response Time|
 |:-:|:-:|:-:|:-:|
@@ -167,7 +168,7 @@ Quantum : 5
 
 <br/>
 
-- Test Case 2
+### Test Case 2
 
 ||Average Waiting Time|Average Turnaround Time|Average Response Time|
 |:-:|:-:|:-:|:-:|
