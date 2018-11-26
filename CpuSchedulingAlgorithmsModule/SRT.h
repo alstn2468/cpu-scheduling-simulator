@@ -165,74 +165,56 @@ void srt_print_gantt_chart(Process *p, int len)
 	current_time = 0;
 	printf("\n|");
 
-	while (current_time < total_burst_time)
+	while (current_time <= total_burst_time)
 	{
-		shortest_remain_time = INT_MAX;
-
-		if (current_time <= p[len - 1].arrive_time)
+		if (current_time != total_burst_time)
 		{
-			for (i = 0; i < len; i++)
+			shortest_remain_time = INT_MAX;
+
+			if (current_time <= p[len - 1].arrive_time)
 			{
-				if ((p[i].completed == FALSE)
-					&& (p[i].arrive_time <= current_time))
+				for (i = 0; i < len; i++)
 				{
-					if (shortest_remain_time > remain_burst_time[i])
+					if ((p[i].completed == FALSE)
+						&& (p[i].arrive_time <= current_time))
 					{
-						shortest_remain_time = remain_burst_time[i];
-						k = i;
+						if (shortest_remain_time > remain_burst_time[i])
+						{
+							shortest_remain_time = remain_burst_time[i];
+							k = i;
+						}
 					}
 				}
-			}
-		}
-
-		else
-		{
-			for (i = 0; i < len; i++)
-			{
-				if (p[i].completed == FALSE)
-				{
-					if (shortest_remain_time > remain_burst_time[i])
-					{
-						shortest_remain_time = remain_burst_time[i];
-						k = i;
-					}
-				}
-			}
-		}
-
-		if (current_time == 0)
-		{
-			count[k]++;
-			printf("  ");
-		}
-
-		else
-		{
-			if (pre_k != k)
-			{
-				num = count[pre_k] + 1;
-				count[pre_k] = 0;
-				count[k]++;
-
-				for (i = 0; i < num; i++)
-					printf("\b");
-
-				printf("%2s", p[pre_k].id);
-
-				for (i = 0; i < num - 2; i++)
-					printf(" ");
-
-				printf("|  ");
 			}
 
 			else
 			{
-				count[k]++;
+				for (i = 0; i < len; i++)
+				{
+					if (p[i].completed == FALSE)
+					{
+						if (shortest_remain_time > remain_burst_time[i])
+						{
+							shortest_remain_time = remain_burst_time[i];
+							k = i;
+						}
+					}
+				}
+			}
 
+			if (current_time == 0)
+			{
+				count[k]++;
 				printf("  ");
-				if (current_time == (total_burst_time - 1))
+			}
+
+			else
+			{
+				if (pre_k != k)
 				{
 					num = count[pre_k] + 1;
+					count[pre_k] = 0;
+					count[k]++;
 
 					for (i = 0; i < num; i++)
 						printf("\b");
@@ -241,16 +223,38 @@ void srt_print_gantt_chart(Process *p, int len)
 
 					for (i = 0; i < num - 2; i++)
 						printf(" ");
+
+					printf("|  ");
+				}
+
+				else
+				{
+					count[k]++;
+
+					printf("  ");
 				}
 			}
+
+			pre_k = k;
+			remain_burst_time[k]--;
+			current_time++;
+
+			if (remain_burst_time[k] == 0)
+				p[k].completed = TRUE;
 		}
 
-		pre_k = k;
-		remain_burst_time[k]--;
-		current_time++;
+		else
+		{
+			for (i = 0; i < count[pre_k] + 1; i++)
+				printf("\b");
 
-		if (remain_burst_time[k] == 0)
-			p[k].completed = TRUE;
+			printf("%2s", p[k].id);
+
+			for (i = 0; i < count[pre_k] - 1; i++)
+				printf(" ");
+
+			break;
+		}
 	}
 
 	for (i = 0; i < len; i++)
