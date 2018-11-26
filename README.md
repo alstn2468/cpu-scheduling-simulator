@@ -167,7 +167,6 @@ Quantum : 5
 > SRT > SJF > HRN > NPPS, PPS > FCFS > RR
 
 - - -
-<br/>
 
 ### Test Case 2
 
@@ -192,6 +191,8 @@ Quantum : 5
 - Average Turnaround Time
 
 > SRT > SJF > HRN > NPPS > FCFS > RR > PPS
+
+<br/>
 
 ## Contributor
 - [김혜린](https://www.github.com/merry-Hyelyn)
