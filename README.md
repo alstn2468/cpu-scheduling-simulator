@@ -140,6 +140,57 @@ Quantum : 5
 
 <br/>
 
+## Performance Analysis
+- Test Case 1
+
+||Average Waiting Time|Average Turnaround Time|Average Response Time|
+|:-:|:-:|:-:|:-:|
+|FCFS|9.20|14.60|11.20|
+|SJF|5.20|11.00|7.20|
+|SRT|5.00|10.80|6.60|
+|NPPS|8.40|14.20|10.40|
+|PPS|8.40|14.20|10.40|
+|RR|9.40|15.20|4.00|
+|HRN|6.80|12.60|8.80|
+
+- Average Waiting Time
+
+> SRT > SJF > HRN > NPPS, PPS > FCFS > RR
+
+- Average Response Time
+
+> RR > SRT > SJF > HRN > NPPS, PPS > FCFS
+
+- Average Turnaround Time
+
+> SRT > SJF > HRN > NPPS, PPS > FCFS > RR
+
+- Test Case 2
+
+||Average Waiting Time|Average Turnaround Time|Average Response Time|
+|:-:|:-:|:-:|:-:|
+|FCFS|26.00|36.40|28.00|
+|SJF|13.60|26.00|15.60|
+|SRT|12.60|25.60|11.80|
+|NPPS|22.40|34.80|24.40|
+|PPS|26.60|39.00|18.60|
+|RR|24.40|36.80|10.00|
+|HRN|14.00|26.40|16.00|
+
+- Average Waiting Time
+
+> SRT > SJF > HRN > NPPS > RR > FCFS > PPS
+
+- Average Response Time
+
+> RR > SRT > SJF > HRN > PPS > NPPS > FCFS
+
+- Average Turnaround Time
+
+> SRT > SJF > HRN > NPPS > FCFS > RR > PPS
+
+<br/>
+
 ## Contributor
 - [김혜린](https://www.github.com/merry-Hyelyn)
 - [배서형](https://www.github.com/gurumsh)
