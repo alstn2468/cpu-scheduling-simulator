@@ -50,6 +50,8 @@ void rr_calculate_waiting_time(Process *p, int len, Quantum q)
 		if (check == TRUE)
 			break;
 	}
+
+	free(remain_burst_time);
 }
 
 void rr_calculate_turnaround_time(Process *p, int len)
