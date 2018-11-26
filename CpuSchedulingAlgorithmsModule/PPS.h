@@ -98,7 +98,6 @@ void pps_print_gantt_chart(Process *p, int len)
 
 	int *count = (int *)malloc(sizeof(int) * len);
 	int *remain_burst_time = (int *)malloc(sizeof(int) * len);
-	int *running_time;
 
 	for (i = 0; i < len; i++)
 	{
@@ -107,11 +106,6 @@ void pps_print_gantt_chart(Process *p, int len)
 		p[i].completed = FALSE;
 		count[i] = 0;
 	}
-
-	running_time = (int *)malloc(sizeof(int)*total_burst_time);
-
-	for (i = 0; i < total_burst_time; i++)
-		running_time[i] = -1;
 
 	printf(" ");
 
@@ -216,7 +210,6 @@ void pps_print_gantt_chart(Process *p, int len)
 		{
 			if (pre_k != k)
 			{
-				running_time[current_time] = current_time;
 				num = count[pre_k] + 1;
 				count[pre_k] = 0;
 				count[k]++;
@@ -403,7 +396,6 @@ void pps_print_gantt_chart(Process *p, int len)
 	}
 
 	free(count);
-	free(running_time);
 	free(remain_burst_time);
 }
 
