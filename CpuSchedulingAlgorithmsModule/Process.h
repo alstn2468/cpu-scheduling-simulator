@@ -10,6 +10,7 @@ typedef struct _process
 	int arrive_time;
 	int waiting_time;
 	int return_time;
+	int response_time;
 	int turnaround_time;
 	int burst;
 	int priority;
