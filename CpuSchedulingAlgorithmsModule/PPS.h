@@ -101,7 +101,7 @@ void pps_print_gantt_chart(Process *p, int len)
 		count[i] = 0;
 	}
 
-	printf(" \t");
+	printf("\t ");
 
 	while (current_time < total_burst_time)
 	{
