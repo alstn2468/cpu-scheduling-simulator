@@ -3,8 +3,6 @@
 
 // Print Table
 
-#include <stdio.h>
-
 #include "./Process.h"
 
 void print_table(Process p[], int n)

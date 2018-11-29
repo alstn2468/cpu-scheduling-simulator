@@ -3,15 +3,9 @@
 
 // Non-preemptive Priority Scheduling Algorithm
 
-#include <stdio.h>
-#include <stdlib.h>
-
 #include "./Process.h"
 #include "./SortingFunction.h"
 #include "./PrintTable.h"
-
-#define TRUE 1
-#define FALSE 0
 
 void npps_calculate(Process *p, int len)
 {

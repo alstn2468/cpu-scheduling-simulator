@@ -1,6 +1,3 @@
-#include <stdio.h>
-#include <stdlib.h>
-
 #include "CpuSchedulingAlgorithms.h"
 
 int main()
@@ -41,6 +38,10 @@ int main()
 	HRN(process, process_count);
 
 	NPPS(process, process_count);
+
+	PPS(process, process_count);
+
+	SRT(process, process_count);
 
 	fclose(fp);
 	free(process);

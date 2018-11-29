@@ -3,9 +3,6 @@
 
 // FCFS Algorithm
 
-#include <stdio.h>
-#include <stdlib.h>
-
 #include "./Process.h"
 #include "./SortingFunction.h"
 #include "./PrintTable.h"

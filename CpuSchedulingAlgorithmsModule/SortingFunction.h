@@ -3,9 +3,6 @@
 
 // Sorting Function
 
-#include <stdio.h>
-#include <stdlib.h>
-
 #include "./Process.h"
 
 int compare_by_return_time(const void *a, const void *b)

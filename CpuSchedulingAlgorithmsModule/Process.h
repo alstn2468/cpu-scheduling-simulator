@@ -1,10 +1,14 @@
 #ifndef __PROCESS__
 #define __PROCESS__
+
+// Process Structure Header
+
+#include <stdio.h>
+#include <stdlib.h>
+
 #define ID_LEN 20
 #define TRUE 1
 #define FALSE 0
-
-// Process Structure Header
 
 typedef struct _process
 {

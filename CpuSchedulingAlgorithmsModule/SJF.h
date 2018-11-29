@@ -1,10 +1,7 @@
 #ifndef __SHORTEST__JOB__FIRST__
 #define __SHORTEST__JOB__FIRST__
 
-// Shortest Job First Algorithm
-
-#include <stdio.h>
-#include <stdlib.h>
+// Shortest Job First Algorithmd
 
 #include "./Process.h"
 #include "./SortingFunction.h"
