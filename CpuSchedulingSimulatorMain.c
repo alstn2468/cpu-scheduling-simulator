@@ -29,19 +29,33 @@ int main()
 
 	fscanf(fp, " %d", &quantum);
 
+	puts("┏                                                                                                                       ┓");
 	FCFS(process, process_count);
+	puts("┗                                                                                                                       ┛\n\n");
 
+	puts("┏                                                                                                                       ┓");
 	SJF(process, process_count);
+	puts("┗                                                                                                                       ┛\n\n");
 
+	puts("┏                                                                                                                       ┓");
 	RR(process, process_count, quantum);
+	puts("┗                                                                                                                       ┛\n\n");
 
+	puts("┏                                                                                                                       ┓");
 	HRN(process, process_count);
+	puts("┗                                                                                                                       ┛\n\n");
 
+	puts("┏                                                                                                                       ┓");
 	NPPS(process, process_count);
+	puts("┗                                                                                                                       ┛\n\n");
 
+	puts("┏                                                                                                                       ┓");
 	PPS(process, process_count);
+	puts("┗                                                                                                                       ┛\n\n");
 
+	puts("┏                                                                                                                       ┓");
 	SRT(process, process_count);
+	puts("┗                                                                                                                       ┛\n\n");
 
 	fclose(fp);
 	free(process);
