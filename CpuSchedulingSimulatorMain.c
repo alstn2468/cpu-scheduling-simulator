@@ -29,31 +29,31 @@ int main()
 
 	fscanf(fp, " %d", &quantum);
 
-	puts("┏                                                                                                                             ┓");
+	puts("┏                                                                                                                             ┓\n\n");
 	FCFS(process, process_count);
 	puts("┗                                                                                                                             ┛\n\n");
 
-	puts("┏                                                                                                                             ┓");
+	puts("┏                                                                                                                             ┓\n\n");
 	SJF(process, process_count);
 	puts("┗                                                                                                                             ┛\n\n");
 
-	puts("┏                                                                                                                             ┓");
+	puts("┏                                                                                                                             ┓\n\n");
 	RR(process, process_count, quantum);
 	puts("┗                                                                                                                             ┛\n\n");
 
-	puts("┏                                                                                                                             ┓");
+	puts("┏                                                                                                                             ┓\n\n");
 	HRN(process, process_count);
 	puts("┗                                                                                                                             ┛\n\n");
 
-	puts("┏                                                                                                                             ┓");
+	puts("┏                                                                                                                             ┓\n\n");
 	NPPS(process, process_count);
 	puts("┗                                                                                                                             ┛\n\n");
 
-	puts("┏                                                                                                                             ┓");
+	puts("┏                                                                                                                             ┓\n\n");
 	PPS(process, process_count);
 	puts("┗                                                                                                                             ┛\n\n");
 
-	puts("┏                                                                                                                             ┓");
+	puts("┏                                                                                                                             ┓\n\n");
 	SRT(process, process_count);
 	puts("┗                                                                                                                             ┛\n\n");
 
