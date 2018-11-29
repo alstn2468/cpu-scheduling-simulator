@@ -47,10 +47,10 @@ void npps_calculate(Process *p, int len)
 		if (check == FALSE)
 			break;
 
-		p[min].response_time = time;
+		p[min].response_time = time - p[min].arrive_time;
 		p[min].return_time = time + p[min].burst;
 		p[min].turnaround_time = p[min].return_time - p[min].arrive_time;
-		p[min].waiting_time = p[min].response_time - p[min].arrive_time;
+		p[min].waiting_time = time - p[min].arrive_time;
 		p[min].completed = TRUE;
 
 		time += p[min].burst;
