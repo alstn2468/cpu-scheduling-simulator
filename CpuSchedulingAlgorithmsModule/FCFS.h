@@ -82,6 +82,14 @@ void FCFS(Process *p, int len)
 	{
 		p[i].waiting_time = 0;
 		p[i].return_time = 0;
+		p[i].response_time = 0;
+		p[i].completed = FALSE;
+	}
+
+	for (i = 0; i < len; i++)
+	{
+		p[i].waiting_time = 0;
+		p[i].return_time = 0;
 	}
 
 	p[0].return_time = p[0].burst;
@@ -94,7 +102,7 @@ void FCFS(Process *p, int len)
 		p[i].waiting_time = total_return_time - p[i].arrive_time;
 		p[i].return_time = total_return_time + p[i].burst;
 		p[i].turnaround_time = p[i].return_time - p[i].arrive_time;
-		p[i].response_time = p[i].waiting_time + p[i].arrive_time;
+		p[i].response_time = p[i].waiting_time;
 
 		total_return_time += p[i].burst;
 		total_waiting_time += p[i].waiting_time;

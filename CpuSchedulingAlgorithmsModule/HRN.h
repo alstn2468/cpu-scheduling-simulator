@@ -10,9 +10,6 @@
 #include "./CompareFunction.h"
 #include "./PrintTable.h"
 
-#define TRUE 1
-#define FALSE 0
-
 void hrn_print_gantt_chart(Process *p, int len)
 {
 	int i, j;
@@ -114,7 +111,7 @@ void HRN(Process *p, int len)
 		p[loc].waiting_time = time - p[loc].arrive_time - p[loc].burst;
 		p[loc].turnaround_time = time - p[loc].arrive_time;
 		p[loc].return_time = p[loc].turnaround_time + p[loc].arrive_time;
-		p[loc].response_time = p[loc].arrive_time + p[loc].waiting_time;
+		p[loc].response_time = p[loc].waiting_time;
 		p[loc].completed = TRUE;
 
 		total_turnaround_time += p[loc].turnaround_time;
