@@ -10,17 +10,18 @@
 #include "./CompareFunction.h"
 #include "./PrintTable.h"
 
-#define TRUE 1
-#define FALSE 0
-
 void rr_calculate_waiting_time(Process *p, int len, Quantum q)
 {
 	int i;
 	int curr_time = 0;
 	int *remain_burst_time = (int *)malloc(sizeof(int) * len);
+	int *calc_response_time = (int *)malloc(sizeof(int) * len);
 
 	for (i = 0; i < len; i++)
+	{
 		remain_burst_time[i] = p[i].burst;
+		calc_response_time[i] = FALSE;
+	}
 
 	while (TRUE)
 	{
@@ -31,6 +32,12 @@ void rr_calculate_waiting_time(Process *p, int len, Quantum q)
 			if (remain_burst_time[i] > 0)
 			{
 				check = FALSE;
+
+				if (calc_response_time[i] == FALSE)
+				{
+					p[i].response_time = curr_time - p[i].arrive_time;
+					calc_response_time[i] = TRUE;
+				}
 
 				if (remain_burst_time[i] > q)
 				{
@@ -158,7 +165,7 @@ void rr_print_gantt_chart(Process *p, int len, Quantum q)
 
 				else
 				{
-					printf("|", p[i].id);
+					printf("|");
 
 					for (j = 0; j < q; j++)
 						printf(" ");
@@ -313,7 +320,9 @@ void RR(Process *p, int len, Quantum quantum)
 	int total_return_time = 0;
 	int total_response_time = 0;
 
-	qsort(p, len, sizeof(Process), compare_by_arrive_time);
+	process_init(p, len);
+
+	merge_sort(p, 0, len);
 
 	rr_calculate_waiting_time(p, len, quantum);
 	rr_calculate_turnaround_time(p, len);
@@ -322,12 +331,6 @@ void RR(Process *p, int len, Quantum quantum)
 	{
 		p[i].waiting_time = p[i].turnaround_time - p[i].burst;
 		p[i].return_time = p[i].arrive_time + p[i].burst + p[i].waiting_time;
-
-		if (i == 0)
-			p[i].response_time = 0;
-
-		else
-			p[i].response_time = p[i - 1].response_time + quantum;
 
 		total_turnaround_time += p[i].turnaround_time;
 		total_waiting_time += p[i].waiting_time;

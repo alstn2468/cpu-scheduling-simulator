@@ -76,15 +76,9 @@ void FCFS(Process *p, int len)
 	int total_return_time = 0;
 	int total_response_time = 0;
 
-	qsort(p, len, sizeof(Process), compare_by_arrive_time);
+	merge_sort(p, 0, len);
 
-	for (i = 0; i < len; i++)
-	{
-		p[i].waiting_time = 0;
-		p[i].return_time = 0;
-		p[i].response_time = 0;
-		p[i].completed = FALSE;
-	}
+	process_init(p, len);
 
 	for (i = 0; i < len; i++)
 	{

@@ -10,9 +10,6 @@
 #include "./CompareFunction.h"
 #include "./PrintTable.h"
 
-#define TRUE 1
-#define FALSE 0
-
 void pps_calculate_waiting_time(Process *p, int len)
 {
 	int i;
@@ -407,7 +404,9 @@ void PPS(Process *p, int len)
 	int total_return_time = 0;
 	int total_response_time = 0;
 
-	qsort(p, len, sizeof(Process), compare_by_arrive_time);
+	process_init(p, len);
+
+	merge_sort(p, 0, len);
 
 	pps_calculate_waiting_time(p, len);
 

@@ -19,14 +19,6 @@ void npps_calculate(Process *p, int len)
 	int check, min;
 	int time = 0;
 
-	for (i = 0; i < len; i++)
-	{
-		p[i].waiting_time = 0;
-		p[i].return_time = 0;
-		p[i].response_time = 0;
-		p[i].completed = FALSE;
-	}
-
 	p[0].return_time = p[0].burst;
 	p[0].turnaround_time = p[0].return_time - p[0].arrive_time;
 	p[0].response_time = 0;
@@ -129,6 +121,10 @@ void NPPS(Process *p, int len)
 	int total_turnaround_time = 0;
 	int total_return_time = 0;
 	int total_response_time = 0;
+
+	process_init(p, len);
+
+	merge_sort(p, 0, len);
 
 	npps_calculate(p, len);
 

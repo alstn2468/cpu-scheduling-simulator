@@ -17,22 +17,11 @@ void sjf_calculate_time(Process *p, int len)
 	int min = 0;
 	int check = FALSE;
 
-	for (i = 0; i < len; i++)
-	{
-		p[i].waiting_time = 0;
-		p[i].return_time = 0;
-		p[i].response_time = 0;
-		p[i].completed = FALSE;
-	}
-
 	p[0].completed = TRUE;
 	p[0].return_time = p[0].burst;
 	p[0].turnaround_time = p[0].burst - p[0].arrive_time;
 	p[0].waiting_time = 0;
 	curr_time = p[0].burst;
-
-	for (i = 1; i < len; i++)
-		p[i].completed = FALSE;
 
 	for(i = 1; i < len; i++)
 	{
@@ -134,7 +123,9 @@ void SJF(Process *p, int len)
 	int total_return_time = 0;
 	int total_response_time = 0;
 
-	qsort(p, len, sizeof(Process), compare_by_arrive_time);
+	process_init(p, len);
+
+	merge_sort(p, 0, len);
 
 	sjf_calculate_time(p, len);
 

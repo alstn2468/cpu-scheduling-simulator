@@ -79,13 +79,15 @@ void HRN(Process *p, int len)
 
 	float hrr, temp;
 
+	process_init(p, len);
+
 	for (i = 0; i < len; i++)
 	{
 		total_burst_time += p[i].burst;
 		p[i].completed = FALSE;
 	}
 
-	qsort(p, len, sizeof(Process), compare_by_arrive_time);
+	merge_sort(p, 0, len);
 
 	for (time = p[0].arrive_time; time < total_burst_time;)
 	{
