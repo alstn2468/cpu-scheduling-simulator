@@ -7,7 +7,7 @@
 #include <stdlib.h>
 
 #include "./Process.h"
-#include "./CompareFunction.h"
+#include "./SortingFunction.h"
 #include "./PrintTable.h"
 
 void rr_calculate_waiting_time(Process *p, int len, Quantum q)
@@ -322,7 +322,7 @@ void RR(Process *p, int len, Quantum quantum)
 
 	process_init(p, len);
 
-	merge_sort(p, 0, len);
+	merge_sort_by_arrive_time(p, 0, len);
 
 	rr_calculate_waiting_time(p, len, quantum);
 	rr_calculate_turnaround_time(p, len);

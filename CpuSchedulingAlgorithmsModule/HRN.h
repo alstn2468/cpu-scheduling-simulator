@@ -7,7 +7,7 @@
 #include <stdlib.h>
 
 #include "./Process.h"
-#include "./CompareFunction.h"
+#include "./SortingFunction.h"
 #include "./PrintTable.h"
 
 void hrn_print_gantt_chart(Process *p, int len)
@@ -87,7 +87,7 @@ void HRN(Process *p, int len)
 		p[i].completed = FALSE;
 	}
 
-	merge_sort(p, 0, len);
+	merge_sort_by_arrive_time(p, 0, len);
 
 	for (time = p[0].arrive_time; time < total_burst_time;)
 	{
@@ -122,7 +122,7 @@ void HRN(Process *p, int len)
 		total_response_time += p[loc].response_time;
 	}
 
-	qsort(p, len, sizeof(Process), compare_by_return_time);
+	quick_sort_by_return_time(p, len);
 
 	printf("Highest Response Ratio Next Scheduling Algorithm\n\n");
 

@@ -7,7 +7,7 @@
 #include <stdlib.h>
 
 #include "./Process.h"
-#include "./CompareFunction.h"
+#include "./SortingFunction.h"
 #include "./PrintTable.h"
 
 void sjf_calculate_time(Process *p, int len)
@@ -125,7 +125,7 @@ void SJF(Process *p, int len)
 
 	process_init(p, len);
 
-	merge_sort(p, 0, len);
+	merge_sort_by_arrive_time(p, 0, len);
 
 	sjf_calculate_time(p, len);
 
@@ -142,7 +142,7 @@ void SJF(Process *p, int len)
 
 	printf("SJF Scheduling Algorithms\n\n");
 
-	qsort(p, len, sizeof(Process), compare_by_return_time);
+	quick_sort_by_return_time(p, len);
 
 	sjf_print_gantt_chart(p, len);
 

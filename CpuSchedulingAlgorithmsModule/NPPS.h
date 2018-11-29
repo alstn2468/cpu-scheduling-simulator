@@ -7,7 +7,7 @@
 #include <stdlib.h>
 
 #include "./Process.h"
-#include "./CompareFunction.h"
+#include "./SortingFunction.h"
 #include "./PrintTable.h"
 
 #define TRUE 1
@@ -124,7 +124,7 @@ void NPPS(Process *p, int len)
 
 	process_init(p, len);
 
-	merge_sort(p, 0, len);
+	merge_sort_by_arrive_time(p, 0, len);
 
 	npps_calculate(p, len);
 
@@ -136,7 +136,7 @@ void NPPS(Process *p, int len)
 		total_response_time += p[i].response_time;
 	}
 
-	qsort(p, len, sizeof(Process), compare_by_return_time);
+	quick_sort_by_return_time(p, len);
 
 	printf("Non-preemptive Priority Scheduling Algorithm\n\n");
 

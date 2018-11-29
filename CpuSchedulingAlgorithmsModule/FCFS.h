@@ -7,7 +7,7 @@
 #include <stdlib.h>
 
 #include "./Process.h"
-#include "./CompareFunction.h"
+#include "./SortingFunction.h"
 #include "./PrintTable.h"
 
 void fcfs_print_gantt_chart(Process *p, int len)
@@ -76,7 +76,7 @@ void FCFS(Process *p, int len)
 	int total_return_time = 0;
 	int total_response_time = 0;
 
-	merge_sort(p, 0, len);
+	merge_sort_by_arrive_time(p, 0, len);
 
 	process_init(p, len);
 

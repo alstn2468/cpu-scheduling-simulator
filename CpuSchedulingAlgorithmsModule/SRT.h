@@ -7,7 +7,7 @@
 #include <stdlib.h>
 
 #include "./Process.h"
-#include "./CompareFunction.h"
+#include "./SortingFunction.h"
 #include "./PrintTable.h"
 
 void srt_calculate_waiting_time(Process *p, int len)
@@ -407,7 +407,7 @@ void SRT(Process *p, int len)
 
 	process_init(p, len);
 
-	merge_sort(p, 0, len);
+	merge_sort_by_arrive_time(p, 0, len);
 
 	srt_calculate_waiting_time(p, len);
 
