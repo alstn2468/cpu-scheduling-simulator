@@ -1,9 +1,10 @@
 #ifndef __COMPARE__FUNCTION__
 #define __COMPARE__FUNCTION__
 
-// Compare Function
+// Sorting Function
 
 #include <stdio.h>
+#include <stdlib.h>
 
 #include "./Process.h"
 
@@ -20,6 +21,11 @@ int compare_by_return_time(const void *a, const void *b)
 
 	else
 		return 0;
+}
+
+void quick_sort_by_return_time(Process p[], int len)
+{
+	qsort(p, len, sizeof(Process), compare_by_return_time);
 }
 
 /**
@@ -85,12 +91,12 @@ void merge(Process arr[], int left, int mid, int right)
 }
 
 /**
- * [merge_sort 함수]
+ * [merge_sort_by_arrive_time 함수]
  * @param arr   [정렬할 배열]
  * @param left  [배열의 가장 왼쪽 인덱스]
  * @param right [배열의 가장 오른쪽 인덱스]
  */
-void merge_sort(Process arr[], int left, int right)
+void merge_sort_by_arrive_time(Process arr[], int left, int right)
 {
 	int mid;
 	// 중간 지점 인덱스를 저장할 변수 선언
@@ -102,8 +108,8 @@ void merge_sort(Process arr[], int left, int right)
 		mid = (left + right) / 2;
 
 		/* 둘로 나눠서 각각을 정렬한다 */
-		merge_sort(arr, left, mid);
-		merge_sort(arr, mid + 1, right);
+		merge_sort_by_arrive_time(arr, left, mid);
+		merge_sort_by_arrive_time(arr, mid + 1, right);
 
 		/* 정렬된 두 배열을 병합한다 */
 		merge(arr, left, mid, right);

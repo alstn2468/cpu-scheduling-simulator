@@ -82,6 +82,8 @@ void rr_print_gantt_chart(Process *p, int len, Quantum q)
 		total_burst_time += p[i].burst;
 	}
 
+	printf("\t");
+
 	while (TRUE)
 	{
 		int check = TRUE;
@@ -127,7 +129,7 @@ void rr_print_gantt_chart(Process *p, int len, Quantum q)
 			break;
 	}
 
-	printf(" \n");
+	printf(" \n\t");
 
 	for (i = 0; i < len; i++)
 	{
@@ -197,7 +199,7 @@ void rr_print_gantt_chart(Process *p, int len, Quantum q)
 			break;
 	}
 
-	printf("|\n");
+	printf("|\n\t");
 
 	for (i = 0; i < len; i++)
 	{
@@ -249,7 +251,7 @@ void rr_print_gantt_chart(Process *p, int len, Quantum q)
 			break;
 	}
 
-	printf("\n");
+	printf("\n\t");
 
 	for (i = 0; i < len; i++)
 		remain_burst_time[i] = p[i].burst;
@@ -338,13 +340,13 @@ void RR(Process *p, int len, Quantum quantum)
 		total_response_time += p[i].response_time;
 	}
 
-	printf("Round Robin Scheduling Algorithm ( Quantum : %d )\n\n", quantum);
+	printf("\tRound Robin Scheduling Algorithm ( Quantum : %d )\n\n", quantum);
 
 	rr_print_gantt_chart(p, len, quantum);
 
-	printf("\nAverage Waiting Time     : %-2.2lf\n", (double)total_waiting_time / (double)len);
-	printf("Average Turnaround Time  : %-2.2lf\n", (double)total_turnaround_time / (double)len);
-	printf("Average Response Time    : %-2.2lf\n\n", (double)total_response_time / (double)len);
+	printf("\n\tAverage Waiting Time     : %-2.2lf\n", (double)total_waiting_time / (double)len);
+	printf("\tAverage Turnaround Time  : %-2.2lf\n", (double)total_turnaround_time / (double)len);
+	printf("\tAverage Response Time    : %-2.2lf\n\n", (double)total_response_time / (double)len);
 
 	print_table(p, len);
 }

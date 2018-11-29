@@ -104,7 +104,7 @@ void pps_print_gantt_chart(Process *p, int len)
 		count[i] = 0;
 	}
 
-	printf(" ");
+	printf(" \t");
 
 	while (current_time < total_burst_time)
 	{
@@ -159,7 +159,7 @@ void pps_print_gantt_chart(Process *p, int len)
 		p[i].completed = FALSE;
 	}
 
-	printf("\n|");
+	printf("\n\t|");
 	current_time = 0;
 
 	while (current_time < total_burst_time)
@@ -258,7 +258,7 @@ void pps_print_gantt_chart(Process *p, int len)
 		p[i].completed = FALSE;
 	}
 
-	printf("|\n");
+	printf("|\n\t");
 	current_time = 0;
 
 	while (current_time < total_burst_time)
@@ -317,7 +317,7 @@ void pps_print_gantt_chart(Process *p, int len)
 
 	current_time = 0;
 	num = 0;
-	printf("\n");
+	printf("\n\t");
 
 	while (current_time <= total_burst_time)
 	{
@@ -392,6 +392,8 @@ void pps_print_gantt_chart(Process *p, int len)
 		}
 	}
 
+	printf("\n");
+
 	free(count);
 	free(remain_burst_time);
 }
@@ -418,13 +420,13 @@ void PPS(Process *p, int len)
 		total_response_time += p[i].response_time;
 	}
 
-	printf("Preemptive Priority Scheduling Algorithm\n\n");
+	printf("\tPreemptive Priority Scheduling Algorithm\n\n");
 
 	pps_print_gantt_chart(p, len);
 
-	printf("\n\nAverage Waiting Time     : %-2.2lf\n", (double)total_waiting_time / (double)len);
-	printf("Average Turnaround Time  : %-2.2lf\n", (double)total_turnaround_time / (double)len);
-	printf("Average Response Time    : %-2.2lf\n\n", (double)total_response_time / (double)len);
+	printf("\n\tAverage Waiting Time     : %-2.2lf\n", (double)total_waiting_time / (double)len);
+	printf("\tAverage Turnaround Time  : %-2.2lf\n", (double)total_turnaround_time / (double)len);
+	printf("\tAverage Response Time    : %-2.2lf\n\n", (double)total_response_time / (double)len);
 
 	print_table(p, len);
 }
