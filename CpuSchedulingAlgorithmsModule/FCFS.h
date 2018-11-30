@@ -3,18 +3,15 @@
 
 // FCFS Algorithm
 
-#include <stdio.h>
-#include <stdlib.h>
-
 #include "./Process.h"
-#include "./CompareFunction.h"
+#include "./SortingFunction.h"
 #include "./PrintTable.h"
 
 void fcfs_print_gantt_chart(Process *p, int len)
 {
 	int i, j;
 
-	printf(" ");
+	printf("\t ");
 
 	for (i = 0; i < len; i++)
 	{
@@ -24,7 +21,7 @@ void fcfs_print_gantt_chart(Process *p, int len)
 		printf(" ");
 	}
 
-	printf("\n|");
+	printf("\n\t|");
 
 	for (i = 0; i < len; i++)
 	{
@@ -39,7 +36,7 @@ void fcfs_print_gantt_chart(Process *p, int len)
 		printf("|");
 	}
 
-	printf("\n ");
+	printf("\n\t ");
 
 	for (i = 0; i < len; i++)
 	{
@@ -49,7 +46,7 @@ void fcfs_print_gantt_chart(Process *p, int len)
 		printf(" ");
 	}
 
-	printf("\n");
+	printf("\n\t");
 
 	printf("0");
 
@@ -76,7 +73,9 @@ void FCFS(Process *p, int len)
 	int total_return_time = 0;
 	int total_response_time = 0;
 
-	qsort(p, len, sizeof(Process), compare_by_arrive_time);
+	merge_sort_by_arrive_time(p, 0, len);
+
+	process_init(p, len);
 
 	for (i = 0; i < len; i++)
 	{
@@ -94,7 +93,7 @@ void FCFS(Process *p, int len)
 		p[i].waiting_time = total_return_time - p[i].arrive_time;
 		p[i].return_time = total_return_time + p[i].burst;
 		p[i].turnaround_time = p[i].return_time - p[i].arrive_time;
-		p[i].response_time = p[i].waiting_time + p[i].arrive_time;
+		p[i].response_time = p[i].waiting_time;
 
 		total_return_time += p[i].burst;
 		total_waiting_time += p[i].waiting_time;
@@ -102,14 +101,13 @@ void FCFS(Process *p, int len)
 		total_response_time += p[i].response_time;
 	}
 
-	printf("\nFCFS Scheduling Algorithm\n\n");
+	printf("\n\tFCFS Scheduling Algorithm\n\n");
 
 	fcfs_print_gantt_chart(p, len);
 
-	printf("\nAverage Waiting Time     : %-2.2lf\n", (double)total_waiting_time / (double)len);
-	printf("Average Turnaround Time  : %-2.2lf\n", (double)total_turnaround_time / (double)len);
-	printf("Average Return Time      : %-2.2lf\n", (double)total_return_time / (double)len);
-	printf("Average Response Time    : %-2.2lf\n\n", (double)total_response_time / (double)len);
+	printf("\n\tAverage Waiting Time     : %-2.2lf\n", (double)total_waiting_time / (double)len);
+	printf("\tAverage Turnaround Time  : %-2.2lf\n", (double)total_turnaround_time / (double)len);
+	printf("\tAverage Response Time    : %-2.2lf\n\n", (double)total_response_time / (double)len);
 
 	print_table(p, len);
 }

@@ -3,21 +3,15 @@
 
 // HRN Algorithm
 
-#include <stdio.h>
-#include <stdlib.h>
-
 #include "./Process.h"
-#include "./CompareFunction.h"
+#include "./SortingFunction.h"
 #include "./PrintTable.h"
-
-#define TRUE 1
-#define FALSE 0
 
 void hrn_print_gantt_chart(Process *p, int len)
 {
 	int i, j;
 
-	printf(" ");
+	printf("\t ");
 
 	for (i = 0; i < len; i++)
 	{
@@ -27,7 +21,7 @@ void hrn_print_gantt_chart(Process *p, int len)
 		printf(" ");
 	}
 
-	printf("\n|");
+	printf("\n\t|");
 
 	for (i = 0; i < len; i++)
 	{
@@ -42,7 +36,7 @@ void hrn_print_gantt_chart(Process *p, int len)
 		printf("|");
 	}
 
-	printf("\n ");
+	printf("\n\t ");
 
 	for (i = 0; i < len; i++)
 	{
@@ -52,7 +46,7 @@ void hrn_print_gantt_chart(Process *p, int len)
 		printf(" ");
 	}
 
-	printf("\n");
+	printf("\n\t");
 
 	printf("0");
 
@@ -65,7 +59,6 @@ void hrn_print_gantt_chart(Process *p, int len)
 			printf("\b");
 
 		printf("%d", p[i].return_time);
-
 	}
 
 	printf("\n");
@@ -83,22 +76,24 @@ void HRN(Process *p, int len)
 
 	float hrr, temp;
 
+	process_init(p, len);
+
 	for (i = 0; i < len; i++)
 	{
 		total_burst_time += p[i].burst;
 		p[i].completed = FALSE;
 	}
 
-	qsort(p, len, sizeof(Process), compare_by_arrive_time);
+	merge_sort_by_arrive_time(p, 0, len);
 
 	for (time = p[0].arrive_time; time < total_burst_time;)
 	{
-
 		hrr = -9999;
 
 		for (i = 0; i < len; i++)
 		{
-			if (p[i].arrive_time <= time && p[i].completed != TRUE)
+			if ((p[i].arrive_time <= time)
+					&& (p[i].completed != TRUE))
 			{
 				temp = (p[i].burst + (time - p[i].arrive_time)) / p[i].burst;
 
@@ -115,7 +110,7 @@ void HRN(Process *p, int len)
 		p[loc].waiting_time = time - p[loc].arrive_time - p[loc].burst;
 		p[loc].turnaround_time = time - p[loc].arrive_time;
 		p[loc].return_time = p[loc].turnaround_time + p[loc].arrive_time;
-		p[loc].response_time = p[loc].arrive_time + p[loc].waiting_time;
+		p[loc].response_time = p[loc].waiting_time;
 		p[loc].completed = TRUE;
 
 		total_turnaround_time += p[loc].turnaround_time;
@@ -124,16 +119,15 @@ void HRN(Process *p, int len)
 		total_response_time += p[loc].response_time;
 	}
 
-	qsort(p, len, sizeof(Process), compare_by_return_time);
+	quick_sort_by_return_time(p, len);
 
-	printf("Highest Response Ratio Next Scheduling Algorithm\n\n");
+	printf("\tHighest Response Ratio Next Scheduling Algorithm\n\n");
 
 	hrn_print_gantt_chart(p, len);
 
-	printf("\nAverage Waiting Time     : %-2.2lf\n", (double)total_waiting_time / (double)len);
-	printf("Average Turnaround Time  : %-2.2lf\n", (double)total_turnaround_time / (double)len);
-	printf("Average Return Time      : %-2.2lf\n", (double)total_return_time / (double)len);
-	printf("Average Response Time    : %-2.2lf\n\n", (double)total_response_time / (double)len);
+	printf("\n\tAverage Waiting Time     : %-2.2lf\n", (double)total_waiting_time / (double)len);
+	printf("\tAverage Turnaround Time  : %-2.2lf\n", (double)total_turnaround_time / (double)len);
+	printf("\tAverage Response Time    : %-2.2lf\n\n", (double)total_response_time / (double)len);
 
 	print_table(p, len);
 }

@@ -1,17 +1,11 @@
 #ifndef __SHORTEST__JOB__FIRST__
 #define __SHORTEST__JOB__FIRST__
 
-// Shortest Job First Algorithm
-
-#include <stdio.h>
-#include <stdlib.h>
+// Shortest Job First Algorithmd
 
 #include "./Process.h"
-#include "./CompareFunction.h"
+#include "./SortingFunction.h"
 #include "./PrintTable.h"
-
-#define TRUE 1
-#define FALSE 0
 
 void sjf_calculate_time(Process *p, int len)
 {
@@ -25,9 +19,6 @@ void sjf_calculate_time(Process *p, int len)
 	p[0].turnaround_time = p[0].burst - p[0].arrive_time;
 	p[0].waiting_time = 0;
 	curr_time = p[0].burst;
-
-	for (i = 1; i < len; i++)
-		p[i].completed = FALSE;
 
 	for(i = 1; i < len; i++)
 	{
@@ -45,8 +36,9 @@ void sjf_calculate_time(Process *p, int len)
 
 		for (j = i; j < len; j++)
 		{
-			if ((p[j].completed == FALSE) && (p[j].arrive_time <= curr_time)
-				&& (p[j].burst < p[min].burst))
+			if ((p[j].completed == FALSE)
+					&& (p[j].arrive_time <= curr_time)
+						&& (p[j].burst < p[min].burst))
 			{
 				min = j;
 			}
@@ -67,7 +59,7 @@ void sjf_print_gantt_chart(Process *p, int len)
 {
 	int i, j;
 
-	printf(" ");
+	printf("\t ");
 
 	for (i = 0; i < len; i++)
 	{
@@ -77,7 +69,7 @@ void sjf_print_gantt_chart(Process *p, int len)
 		printf(" ");
 	}
 
-	printf("\n|");
+	printf("\n\t|");
 
 	for (i = 0; i < len; i++)
 	{
@@ -92,7 +84,7 @@ void sjf_print_gantt_chart(Process *p, int len)
 		printf("|");
 	}
 
-	printf("\n ");
+	printf("\n\t ");
 
 	for (i = 0; i < len; i++)
 	{
@@ -102,7 +94,7 @@ void sjf_print_gantt_chart(Process *p, int len)
 		printf(" ");
 	}
 
-	printf("\n");
+	printf("\n\t");
 
 	printf("0");
 
@@ -128,14 +120,16 @@ void SJF(Process *p, int len)
 	int total_return_time = 0;
 	int total_response_time = 0;
 
-	qsort(p, len, sizeof(Process), compare_by_arrive_time);
+	process_init(p, len);
+
+	merge_sort_by_arrive_time(p, 0, len);
 
 	sjf_calculate_time(p, len);
 
 	for (i = 0; i < len; i++)
 	{
 		p[i].return_time = p[i].turnaround_time + p[i].arrive_time;
-		p[i].response_time = p[i].arrive_time + p[i].waiting_time;
+		p[i].response_time = p[i].waiting_time;
 
 		total_waiting_time += p[i].waiting_time;
 		total_turnaround_time += p[i].turnaround_time;
@@ -143,16 +137,15 @@ void SJF(Process *p, int len)
 		total_response_time += p[i].response_time;
 	}
 
-	printf("SJF Scheduling Algorithms\n\n");
+	printf("\tSJF Scheduling Algorithms\n\n");
 
-	qsort(p, len, sizeof(Process), compare_by_return_time);
+	quick_sort_by_return_time(p, len);
 
 	sjf_print_gantt_chart(p, len);
 
-	printf("\nAverage Waiting Time     : %-2.2lf\n", (double)total_waiting_time / (double)len);
-	printf("Average Turnaround Time  : %-2.2lf\n", (double)total_turnaround_time / (double)len);
-	printf("Average Return Time      : %-2.2lf\n", (double)total_return_time / (double)len);
-	printf("Average Response Time    : %-2.2lf\n\n", (double)total_response_time / (double)len);
+	printf("\n\tAverage Waiting Time     : %-2.2lf\n", (double)total_waiting_time / (double)len);
+	printf("\tAverage Turnaround Time  : %-2.2lf\n", (double)total_turnaround_time / (double)len);
+	printf("\tAverage Response Time    : %-2.2lf\n\n", (double)total_response_time / (double)len);
 
 	print_table(p, len);
 }
