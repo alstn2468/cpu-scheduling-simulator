@@ -7,7 +7,7 @@
 #include "./SortingFunction.h"
 #include "./PrintTable.h"
 
-void pps_calculate_waiting_time(Process *p, int len)
+void pps_calculate_time(Process *p, int len)
 {
 	int i;
 	int priority;
@@ -407,7 +407,7 @@ void PPS(Process *p, int len)
 
 	merge_sort_by_arrive_time(p, 0, len);
 
-	pps_calculate_waiting_time(p, len);
+	pps_calculate_time(p, len);
 
 	for (i = 0; i < len; i++)
 	{
