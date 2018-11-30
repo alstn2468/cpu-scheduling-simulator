@@ -9,7 +9,7 @@
 #include "./PrintTable.h"
 
 /**
- * [rr_calculate_waiting_time 라운드 로빈 알고리즘 대기 시간 계산 함수]
+ * [rr_calculate_waiting_time RR 알고리즘 대기 시간 계산 함수]
  * @param p   [description]
  * @param len [description]
  * @param q   [description]
@@ -372,7 +372,7 @@ void rr_print_gantt_chart(Process *p, int len, Quantum q)
 }
 
 /**
- * [RR 라운드 로빈 알고리즘 실행 함수]
+ * [RR RR 알고리즘 실행 함수]
  * @param p       [프로세스 구조체 배열]
  * @param len     [프로세스 갯수]
  * @param quantum [시간 할당량]
