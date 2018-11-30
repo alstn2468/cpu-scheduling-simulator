@@ -31,8 +31,8 @@ int main()
     /* 파일을 여는데 실패했을 경우 */
     if (fp == NULL)
     {
-    printf("FILE OPEN ERROR!\n");
-    return 0; // 예외 출력 후 메인 함수 종료
+        printf("FILE OPEN ERROR!\n");
+        return 0; // 예외 출력 후 메인 함수 종료
     }
 
     fscanf(fp, " %d", &process_count);
@@ -44,11 +44,11 @@ int main()
     /* 프로세스 갯수만큼 반복 */
     while (i < process_count)
     {
-    fscanf(fp, "%s %d %d %d",
-    process[i].id, &process[i].arrive_time, &process[i].burst, &process[i].priority);
-    // 파일에서 프로세스 데이터를 읽어와 배열에 저장
-    i++;
-    // 다음 배열로 이동
+        fscanf(fp, "%s %d %d %d",
+                process[i].id, &process[i].arrive_time, &process[i].burst, &process[i].priority);
+        // 파일에서 프로세스 데이터를 읽어와 배열에 저장
+        i++;
+        // 다음 배열로 이동
     }
 
     fscanf(fp, " %d", &quantum);
