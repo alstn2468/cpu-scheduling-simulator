@@ -19,7 +19,7 @@ void npps_calculate(Process *p, int len)
 	// 반복문에서 사용할 변수 선언
 	int check;
 	// 모든 프로세스가 완료되었는지 확인할 변수 선언
-	int min
+	int min;
 	// 우선순위가 가장 높은 인덱스를 저장할 변수 선언
 	int time = 0;
 	// 현재 시간을 저장할 변수 선언 및 초기화
