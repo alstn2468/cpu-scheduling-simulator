@@ -26,7 +26,7 @@ void srt_calculate_time(Process *p, int len)
 	int k = 0;
 	// 현재 실행중인 프로세스 번호를 저장할 변수 선언 및 초기화
 
-	/* 각 프로레스 별 남은 실행 시간을 저장할 배열 동적 할당 */
+	/* 각 프로세스 별 남은 실행 시간을 저장할 배열 동적 할당 */
 	int *remain_burst_time = (int *)malloc(sizeof(int) * len);
 	/* 응답 시간을 확인하는데 사용할 배열 동적 할당 */
 	int *count = (int *)malloc(sizeof(int) * len);
