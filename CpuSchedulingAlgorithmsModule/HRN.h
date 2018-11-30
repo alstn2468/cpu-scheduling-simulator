@@ -148,11 +148,11 @@ void HRN(Process *p, int len)
 		p[loc].response_time = p[loc].waiting_time;
 		p[loc].completed = TRUE;
 
-		total_waiting_time += p[i].waiting_time;
+		total_waiting_time += p[loc].waiting_time;
 		// 총 대기 시간 증가
-		total_turnaround_time += p[i].turnaround_time;
+		total_turnaround_time += p[loc].turnaround_time;
 		// 총 턴어라운드 타임 증가
-		total_response_time += p[i].response_time;
+		total_response_time += p[loc].response_time;
 		// 총 응답 시간 증가
 	}
 
