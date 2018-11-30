@@ -27,6 +27,7 @@ void sjf_calculate_time(Process *p, int len)
 	p[0].return_time = p[0].burst;
 	p[0].turnaround_time = p[0].burst - p[0].arrive_time;
 	p[0].waiting_time = 0;
+	
 	curr_time = p[0].burst;
 	// 현재 시간 완료된 프로세스 시간 만큼 증가
 
