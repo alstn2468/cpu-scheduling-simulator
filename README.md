@@ -106,4 +106,3 @@ Quantum : 2
 
 ## Contributor
 - [김혜린](https://www.github.com/merry-Hyelyn)
-- [배서형](https://www.github.com/gurumsh)
