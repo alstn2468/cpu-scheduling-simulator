@@ -5,7 +5,7 @@ Department of Computer Software Engineering
 ------------------------------------------
 
 ##  [김민수](https://github.com/alstn2468)
-## [ [Facebook](https://www.facebook.com/profile.php?id=100003769223078) ] [ [Github](https://github.com/alstn2468) ] [ [LinkedIn](https://www.linkedin.com/in/minsu-kim-336289160/) ] [ [Webpage](https://kimminsu.ml) ]<br/>
+## [ [Facebook](https://www.facebook.com/profile.php?id=100003769223078) ] [ [Github](https://github.com/alstn2468) ] [ [LinkedIn](https://www.linkedin.com/in/minsu-kim-336289160/) ] [ [Blog](alstn2468.github.io) ]<br/>
 
 ## Test Case
 Quantum : 2
