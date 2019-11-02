@@ -106,3 +106,4 @@ Quantum : 2
 
 ## Contributor
 - [김혜린](https://www.github.com/merry-Hyelyn)
+- [DAXaholic](https://www.github.com/DAXaholic)
