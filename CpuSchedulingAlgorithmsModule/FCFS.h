@@ -107,7 +107,7 @@ void FCFS(Process *p, int len)
 	p[0].waiting_time = 0;
 
 	/* 실행된 프로세스만큼 합 증가 */
-	total_response_time += p[i].response_time;
+	total_response_time += p[0].response_time;
 	total_waiting_time += p[0].waiting_time;
 	total_turnaround_time += p[0].turnaround_time;
 	total_return_time += p[0].burst;
